@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/*与终端无关的公共属性*/
+		.primary,.secondary{
+			text-align: center;
+		}
+		
+		/*pc优先*/
+		/*.primary{
+			float: left;
+			width:65%;
+		}
+		.secondary{
+			float: left;
+			width:35%;
+		}
+		@media only screen and (max-width: 600px) {
+			.primary,.secondary{
+				float: none;
+				width:auto;
+			}
+		}*/
+		
+		/*移动端优先*/
+		@media only screen and (min-width: 600px){
+			.primary{
+			float: left;
+			width:65%;
+			}
+			.secondary{
+				float: left;
+				width:35%;
+			}
+		}
+	</style>
+	<body>
+		<div class="primary">这是首要内容</div>
+		<div class="secondary">这是次要内容</div>
+		<div>
+			123<img src="../images/cbd.jpg" />
+			<img src="../images/cbd.jpg" />
+		</div>
+	</body>
+</html>

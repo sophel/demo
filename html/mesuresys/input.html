@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=2.0,width=device-width;"/>
+		<title></title>
+		<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	
+	</head>
+	<body>
+		<div>
+			<label>x:</label><input type="text" id="x"/><br />
+			<label>y:</label><input type="text" id="y"/><br />
+			<label>z:</label><input type="text" id="z"/><br />
+<!--			<a href="output.html?data='{x:1,y:2,z:3}'">超链</a>-->
+			<button id="btn1">提交</button>
+			<button id="save1">存1</button>
+			<button id="save2">存2</button>
+			<button id="save3">存3</button>
+		</div>
+	</body>
+	<script>
+		$(document).ready(function(){
+			alert('页面加载了');
+			var state = window.history.state;
+			console.log( state );
+			for( var item in state ){
+				$("#"+item).val( state[item] );
+			}
+			$("#save1").click(function(){
+				window.history.replaceState({'id':1},'','');
+			});
+			$("#save2").click(function(){
+				//通过push的history可以出发popstate
+				window.history.pushState({'id':2},'','');
+			});
+			$("#save3").click(function(){
+				window.history.pushState({'id':3},'','');
+			});
+			$("#btn1").click(function(){
+				var x = $("#x").val();
+				var y = $("#y").val();
+				var z = $("#z").val();
+				var o = {'x':x,'y':y,'z':z};
+				//1.在state里存储状态数据
+				window.history.replaceState(o,'','');
+				console.log( window.history.state );
+				//2.新的url入栈之前，前清空数据
+				$("input").val('');
+				//3.将新的url压入history栈，window重定向
+				//console.log( window.history );
+				var gotoloc = "output.html?data="+JSON.stringify(o);
+				window.location.href = encodeURI(gotoloc,'utf-8');
+			});
+			window.onunload = function(){//临走前，已经把该状态的state情况了
+				//在页面卸载的时候，释放state里的历史记录
+				var o = {};
+				window.history.replaceState(o,'','');
+				//alert("页面要卸载了");
+			}
+			//不执行，popstate只对同一个doc起作用
+//			window.addEventListener('popstate',function(e){
+//				//alert('ok1');
+//			});
+		});
+	</script>
+</html>

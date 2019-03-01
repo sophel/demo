@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../js/tool.js" ></script>
+	<script type="text/javascript">
+//		//js中，类的唯一标识是原型，不是构造函数
+//		var o = {x:1,y:2};
+//		function P(){};
+//		P.prototype = o;
+//		function Q(){};
+//		Q.prototype = o;
+//		var p = new P();
+//		var q = new Q();
+//		//继承自同一原型对象的对象属于同一个类
+//		//检查是不是F的实例，其实是检查对象是否继承了F的prototype
+//		console.log( p instanceof Q);
+//		console.log( q instanceof P);
+//构造函数的原型里，存在指回构造函数的属性constructor，该属性是一个函数引用
+//	function F(){};
+//	console.log( "constructor" in F.prototype );
+//	console.log( F.prototype.constructor === F );	
+	//对象实例的constructor属性是继承与它的原型对象
+	//js中，每个函数都有原型对象，这个对象中有唯一一个不可枚举的constructor属性
+//	var f = new F();
+//	console.log( f.constructor === F);
+//显式声明了函数的原型，那么需要重新定义constructor属性
+	//方式一：显示的定义constructor属性
+//	function F(x,y){this.x = x;this.y = y;};
+//	F.prototype = 
+//	{
+//		constructor:F,
+//		sum:function()
+//		{
+//			return this.x+this.y;
+//		}
+//	};
+//	console.log( new F(1,1) );
+//	//方式二：给默认原型对象添加需要的方法
+//	function F(x,y){this.x = x;this.y = y;};
+//	F.prototype.sum = function()
+//	{
+//		return this.x+this.y;
+//	}
+//	console.log( new F(1,1).sum());
+//  function Complex(real,imaginary)
+//  {
+//  	if( isNaN( real ) || isNaN( imaginary ) )
+//  	{
+//  		throw new Error( "input type error!" );
+//  	}
+//  	this.r = real;
+//  	this.i = imaginary;
+//  }
+//  Complex.prototype.toString = function()
+//  {
+//  	var str = this.r;
+//  	//做正数和负数虚部的符号处理
+//  	if( this.i >0 )
+//  	{
+//  		str += this.i ==1?"+i":"+"+this.i+"i";
+//  	}
+//  	if( this.i <0 )
+//  	{
+//  		str += this.i ==-1?"-i":this.i+"i";
+//  	}
+//  	return str;
+//  };
+//  Complex.prototype.add = function(that)
+//  {
+//  	if( !that instanceof Complex) 
+//  	{
+//  		throw new Error( "input type error!" );
+//  	}
+//  	return new Complex( this.r+that.r,this.i+that.i ) ;
+//  };
+//  try
+//  {
+//  	var c1 = new Complex( 1,1 );
+//	    var c2 = new Complex( 2,2 );
+//	    var c3 = c1.add( c2);
+//	    console.log( c3 ); 
+//  }
+//  catch(ex)
+//  {
+//  	alert( ex.message );
+//  }
+//  Number.prototype.times = function(f)
+//  {
+//  	//var n = Number( this );//？？？
+//  	for( var i=0;i<this;i++ )//this也可以转化为数字量
+//  	{
+//  		//f.call( this,i );
+//  		f(i);
+//  	}
+//  };
+//  var n1 =  new Number(3);
+//  n1.times( function(i){ console.log(i); } );
+//	String.prototype.print = function()
+//	{
+//		//String原型重写了toString方法，返回字符串对象的值
+//		console.log( this.toString() );
+//	}
+//	var str = new String( "hello,world" );
+//	str.print();
+//instance运算符
+//	var o = {};
+//	function P(){}
+//	P.prototype = o;
+//	var p = new P();
+//	console.log( p instanceof P);
+//	console.log( o.isPrototypeOf(p));
+//constructor
+//	function F(){}
+//	F.prototype.print = function()
+//	{
+//		console.log( "hello,world" );
+//	}
+//	var f= new F();
+
+//	//console.log( f );
+////	console.log( f.constructor );//f的构造函数
+//	for( prop in f )//原型中新增的属性/方法可枚举，其余均不可枚举
+//	{
+//		console.log( prop );
+//	}
+//	console.log( f.constructor );
+//	var b = new Boolean(true);
+//	switch( b.constructor )
+//	{
+//		case Boolean: console.log( "Boolean" );break;
+//		case String:console.log( "String" );break;
+//		case Number:console.log( "Number" );break;
+//		default:console.log( "None" );break;
+//	}
+//	var u = undefined;
+//	var n = null;
+//	var nan = NaN;
+//	function F(){}
+//	var s = "123";//原始类型
+//	var num = 123;//原始类型
+//	var b = true;//原始类型
+//	var o = {};
+//	var s1 = new String();
+//	var num1 = new Number(123);
+//	var b1 = new Boolean(true);
+//	var f = new F();
+//	//typeof可以识别出原始类型（字符串、数字、布尔），但对内置对象和自定义对象无法做进一步区分，均是object
+//	console.log( typeof(u) );//返回undefined
+//	console.log( typeof(null) );//默认返回object,所以要显式处理
+//	console.log( typeof(F) );//
+//	console.log( typeof(s) );//string
+//	console.log( typeof(s1) );//object
+//	console.log( typeof(num) );//number
+//	console.log( typeof(num1) );//object
+//	console.log( typeof(b) );//boolean
+//	console.log( typeof(b1) );//object
+//	console.log( typeof(o) );//返回object
+//	console.log("------------------------------");
+//	//classof可以识别出内置对象，但对用户自定义对象无法做进一步区分，均是object
+//	function classof( o )
+//	{
+//		return Object.prototype.toString.call(o).slice(8,-1);
+//	}
+//	console.log( classof(u) );//返回undefined
+//	console.log( classof(null) );//默认返回object,所以要显式处理
+//	console.log( classof(F) );//
+//	console.log( classof(s) );//均返回各自原始类型
+//	console.log( classof(s1) );//均返回各自原始类型
+//	console.log( classof(num) );// 
+//	console.log( classof(num1) );//
+//	console.log( classof(b) );//
+//	console.log( classof(b1) );//
+//	console.log( classof(o) );//返回object
+//	console.log( type(u) );
+//	console.log( type(n) );
+//	console.log( type(nan) );
+//	console.log( type(F) );
+//	console.log( type(s) );
+//	console.log( type(num) );
+//	console.log( type(b) );
+//	console.log( type(o) );
+//	console.log( type(s1) );
+//	console.log( type(num1) );
+//	console.log( type(b1) );
+//	console.log( type(f) );
+//	var f = function factorial(x){
+//		if( x <= 1 ) return x;
+//		return x*factorial(x-1);//函数名称成为函数内部的一个局部变量
+//	}
+//	console.log( f(4) );
+////	console.log( factorial.prototype );//提示函数不存在
+//var square = (function(x){ return x*x; })(3);
+//function f(){}//没有return 语句默认返回undefined
+//var test  = f();
+//var b = true;//
+//if(b)
+//{
+//	str = "hello world";//成为window对象的一个属性
+//	var f = function f(x){ if(x<=1)return x;return x*f(x-1) };//
+//	console.log(f(1));
+//}
+//console.log(f(3));
+//console.log(str);
+//console.log( this );
+//console.log( "delete this.b:"+(delete this.b) );
+//console.log( "delete this.str:"+(delete this.str) );
+//console.log( "delete this.f:"+(delete this.f) );
+var mynum = 100;
+mystr = "hello world";
+console.log( "mynum" in this );
+console.log( "mystr" in this );
+console.log( Object.getOwnPropertyDescriptor(this,"mynum") );
+console.log( Object.getOwnPropertyDescriptor(this,"mystr") );
+</script>
+	<body> 
+	</body> 
+</html>

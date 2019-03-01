@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	</head>
+	<style>
+		.parent{
+			width:300px;
+			height:300px;
+			border:1px solid #000;
+		}
+		.sub{
+			width:150px;
+			height:150px;
+			border:1px solid #000;
+		}
+	</style>
+	<body>
+		<div class="parent">
+			<div class="sub"></div>
+		</div>
+	</body>
+	<script>
+		document.querySelector(".sub").addEventListener('touchstart',function(e){
+			e.target.style.background = "yellow";
+			e.stopPropagation();
+			e.preventDefault();
+		});
+		document.querySelector(".sub").addEventListener('click',function(e){
+			e.target.style.background = "green";
+		});
+		document.querySelector(".parent").addEventListener('touchstart',function(e){
+			e.target.style.background = "lightblue";
+		});
+	</script>
+</html>

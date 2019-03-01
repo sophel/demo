@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../js/mui.js" ></script>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		function getdata(){
+			getdata.counter++;
+			getdata.show( getdata.counter );
+		}
+		//函数可以定义自己的属性
+		getdata.counter = 0;
+		//函数可以定义自己的方法
+		getdata.show = function(num){
+			console.log( num );
+		}
+//		getdata();
+//		getdata();
+//		getdata();
+		//数组原型扩展--every模拟
+		Array.prototype.myevery = function( f ){
+			var rst = true;
+			for( var i=0;i<this.length;i++  ){
+				if( f(this[i],i,this) === false )
+				return false;
+			}
+			return rst;
+		}
+		
+//		var rst = arr.myevery( x => {return x>0;} );
+//		function print_vars(var1,var2){
+//			console.log( var1 );
+//			console.log( var2 );
+//			console.log( this.name );
+//			console.log( this.age );
+//		}
+//		var o = {
+//			name:'tester',
+//			age:16
+//		};
+//		print_vars.call( o,1,2);
+//		console.log( [].every(x=>{return x===0}) );
+//		var arr = [];
+//		console.log( Object.getPrototypeOf([]) );
+//		Object.setPrototypeOf( arr,{each:function(_callback){
+//			
+//		}} );
+//		var arr = {
+//			"0":1,
+//			"1":2,
+//			"2":3,
+//			length:3
+//		};
+//		var rst = Array.prototype.every.call( arr,function(v,i,a){
+//			return v>0;
+//		} );
+//		console.log( "rst:"+rst );
+		function wrap( dom,selector ){
+			dom = dom||[];
+			Object.setPrototypeOf(dom,{
+				each:function(_callback){
+					//every执行的结果需要通过一个变量来接收
+					var rst = [].every.call( this,function( v,i,a ){
+						//return _callback.call( null,v,i,a ) === true;
+						return _callback( v,i,a ) === true;
+					} );
+					//将接收变量返回
+					return rst;
+				}
+			});
+			dom.selector = selector||'';
+		}
+		var dom = [3,4,5];
+//		console.log( dom );
+		wrap( dom );
+		var rst = dom.each( function( v,i,a ){
+			console.log( v );
+			console.log( i );
+			console.log( a );
+			return v>2;
+		} );
+//		console.log( dom );
+
+	</script>
+</html>

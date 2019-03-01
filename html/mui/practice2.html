@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="test">hi</div>
+	</body>
+	<script>
+		var dom = document.querySelector("#test");
+		dom.__proto__.myaddEventListener = function( evename, _callback){
+			this.addEventListener( evename, function(e){
+				var __callback = _callback.bind( e.target ); 
+				__callback( e );
+			});
+			
+		}
+		dom.myaddEventListener( 'click',function(e){
+			console.log( this.id );
+			console.log( this );
+			console.log( e );
+		} );
+	</script>
+</html>

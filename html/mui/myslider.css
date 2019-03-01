@@ -1,0 +1,90 @@
+.my-silder{
+	width:500px;
+	overflow: hidden;
+	position: relative;
+}
+.my-slider-group{
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 0;
+}
+.my-slider-group .my-silder-item{
+	display: inline-block;
+	width:100%;
+}
+.my-silder-item img{
+	width: 100%;
+}
+.my-silder .my-silder-prev{
+	position: absolute;
+	width:50px;
+	height: 50px;
+	background-color: #000;
+	left:20px;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	opacity: .4;
+}
+.my-silder .my-silder-next{
+	position: absolute;
+	width:50px;
+	height: 50px;
+	background-color: #000;
+	right:20px;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	opacity: .4;
+}
+.my-silder .my-silder-prev:hover,.my-silder .my-silder-next:hover{
+	opacity: .5;
+}
+.my-silder-prev .bar-first{
+	display: block;
+	width:20px;
+	position: absolute;
+	height: 3px;
+	top:17.3px;
+	background: #fff;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	left:15px;
+}
+.my-silder-prev .bar-last{
+	display: block;
+	width:20px;
+	position: absolute;
+	height: 3px;
+	bottom: 17.3px;
+	background: #fff;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	left:15px;
+}
+.my-silder-next .bar-first{
+	display: block;
+	width:20px;
+	position: absolute;
+	height: 3px;
+	top:17.3px;
+	background: #fff;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	right:15px;
+}
+.my-silder-next .bar-last{
+	display: block;
+	width:20px;
+	position: absolute;
+	height: 3px;
+	bottom: 17.3px;
+	background: #fff;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	right:15px;
+}

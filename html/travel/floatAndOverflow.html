@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		html{
+			font-size: 50px;
+		}
+		.wrapper{
+			width:750px;
+			margin-top: 20px;
+		}
+		body{
+			font-size:.28rem
+		}
+		.left{
+			float:left;
+			width:2rem;
+			height: 2rem;
+			background:rgba(200,200,200,.6);
+		}
+		.right{
+			background: lightsalmon;
+			overflow: hidden;
+		}
+		.right-item{
+			min-height: 20px;
+			background: #007AFF;
+		}
+		.flex-wrapper{
+			display:flex;
+			width:750px;
+			margin-top: 20px;
+		}
+		.flex-left{
+			width:2rem;
+			height: 2rem;
+			background:rgba(200,200,200,.6);
+		}
+		.flex-right{
+			flex: 1;
+			background: lightsalmon;
+		}
+	</style>
+	<body>
+		<div class="wrapper">
+			<div class="left">
+				<b>left</b>
+			</div>
+			<div class="right">
+				<b>right</b>
+				<div class="right-item">this is content of right-item area.</div>
+				<p>title</p>
+				<p>
+					detail desc.detail desc.detail desc.detail desc.detail desc.detail desc.
+					detail desc.detail desc.detail desc.detail desc.detail desc.detail desc.
+				</p>
+			</div>
+		</div>
+		<div class="wrapper">
+			<div class="left">
+				<b>left</b>
+			</div>
+			<div class="right">
+				<b>right</b>
+				<div class="right-item">this is content of right-item area.</div>
+				<p>title</p>
+				<p>
+					detail desc.detail desc.detail desc.detail desc.detail desc.detail desc.
+					detail desc.detail desc.detail desc.detail desc.detail desc.detail desc.
+				</p>
+			</div>
+		</div>
+		<div class="wrapper">
+			<div class="left">
+				<b>left</b>
+			</div>
+			<div class="right">
+				<b>right</b>
+				<div class="right-item">this is content of right-item area.</div>
+				<p>title</p>
+				<p>
+					detail desc.detail desc.detail desc.detail desc.detail desc.detail desc.
+					detail desc.detail desc.detail desc.detail desc.detail desc.detail desc.
+				</p>
+			</div>
+		</div>
+		<div class="flex-wrapper">
+			<div class="flex-left"></div>
+			<div class="flex-right"></div>
+		</div>
+	</body>
+</html>
+

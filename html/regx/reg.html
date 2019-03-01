@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	</head>
+	<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	<script>
+		function changeType(context,mytype){
+			context.type = mytype;
+		}
+		$(document).ready(function(){
+			//document.getElementById("num-trigger").focus();
+			$("#num-trigger").blur(function(){
+				console.log( this );
+				console.log( $(this).val() );
+			});
+			$("#num-trigger").focus(function(){
+				//1.隐藏当前trigger
+				//$(this).css("display","none");
+				//2.将输入聚焦至displayer
+				//document.getElementById("val-displayer").focus();
+			});
+		});
+	</script>
+	<style>
+		input{
+			width:40%;
+			height: 25px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+			margin-bottom: 10px;
+		}
+		button{
+			width:20%;
+			height: 30px;
+		}
+		form{
+			width:100%;
+			margin: 0 auto;
+			text-align: center;
+			
+		}
+		.number-simulator{
+			position: relative;
+			height: 35px;
+		}
+		#num-trigger{
+			position: absolute;
+			width:100px;
+			height: 30px;
+			background-color: lightblue;
+		}
+		#val-displayer{
+			position: absolute;
+			width:100px;
+			height: 30px;
+			background-color: lightgreen;
+		}
+	</style>
+	<body>
+		<form>
+			<label>偏移位置X：</label>
+			<!--对于忽略则为0的input,初始value赋值为0-->
+			<input id="val1" type="email" oninput="check_is_shishu(this)"  placeholder="输入实数" value="0"/>
+			<br />
+			
+			<label>偏移位置Y：</label>
+			<!--对于忽略则为0的input,初始value赋值为0-->
+			<input id="val2" type="text" oninput="check_is_shishu(this)"  value="0" />
+			<br />
+			
+			<label>偏移位置Z：</label>
+			<!--对于忽略则为0的input,初始value赋值为0-->
+			<input id="val3" type="text" oninput="check_is_shishu(this)"  value="0" />
+			<br />
+			
+			<div class="number-simulator">
+				<label>请输入number:</label>
+				<input type="text" oninput="showVal(this)" id="val-displayer"/>
+				<input type="text" pattern="[0-9]*" id="num-trigger" />	
+			</div>
+
+
+			
+			<label>整数序列1-48：</label>
+			<!--对于忽略则为0的input,初始value赋值为0-->
+			<input id="val4" type="text" oninput="check_is_int(this,'reg5')"  value="1" />
+			<br />
+			
+			<label>整数序列1-99：</label>
+			<!--对于忽略则为0的input,初始value赋值为0-->
+			<input id="val5" type="text" oninput="check_is_int(this,'reg6')"  value="1" />
+			<br />
+			
+			<button id="submit_btn" onclick="submit_data()">完成</button>
+		</form>
+	</body>
+	<script>
+		
+		var regArray = {
+			/***
+			 * 编号：1
+			 * 正则规则描述：
+			 * ①匹配正负实数和0（±，0），最多保留4为小数
+			 * ②允许符号负号'-'单独存在，不允许小数点'.'单独存在
+			 * 用途：匹配录入域的界面显示数值
+			 * ***/
+//			"reg1":/^[-]?[0-9]*$|^[-]?[0-9]+\.[0-9]{0,4}/,
+			"reg1":/^[-]?[0-9]+\.[0-9]{0,4}|^[-]?[0-9]*/,
+			
+			/***
+			 * 编号：2
+			 * 正则规则描述：
+			 * ①匹配正负实数和0（±，0），最多保留4为小数
+			 * ②不允许负号'-'单独存在，不允许小数点'.'单独存在
+			 * ③至少有一位数字
+			 * 用途：匹配录入域的最终准确取值
+			 * ***/
+//			"reg2":/^[-]?[0-9]+$|^[-]?[0-9]+\.[0-9]{1,4}/,
+			"reg2":/^[-]?[0-9]+\.[0-9]{1,4}|^[-]?[0-9]+[^\.]?$/,
+			
+			/***
+			 * 编号：3
+			 * 正则规则描述：
+			 * ①匹配正实数和0（≥0），最多保留4为小数
+			 * ②不允许小数点'.'单独存在
+			 * 用途：匹配录入域的界面显示数值
+			 * ***/
+			"reg3":/^[0-9]+\.[0-9]{0,4}|^[0-9]*/,
+			
+			/***
+			 * 编号：4
+			 * 正则规则描述：
+			 * ①匹配正实数（≥0），最多保留4为小数
+			 * ②不允许小数点'.'单独存在
+			 * 用途：匹配录入域的最终准确取值
+			 * ***/
+			"reg4":/^[0-9]+\.[0-9]{1,4}|^[0-9]+[^\.]?$/,
+			/***
+			 * 整数序列显示正则:1-48
+			 * ***/
+			"reg5":/^4[0-8]|[2-3][0-9]|^1[0-9]|[1-9]/,
+			/***
+			 * 整数序列取值正则:1-99
+			 * ***/
+			"reg6":/^[1-9][0-9]|[1-9]/
+		};
+		//表单数据有效性检查插件
+		var VallidObj = {
+			//配置待校验项，每个子项关联一个数据录入域
+			//一般有几个录入数据域，就有几个对应的关联项
+			"valid_range":{
+				"val1":true,
+				"val2":true,
+				"val3":true,
+				"val4":true,
+				"val5":true
+			},
+			"valid_val":{
+				"val1":"0",
+				"val2":"0",
+				"val3":"0",
+				"val4":"1",
+				"val5":"1"
+			},
+			/***
+			 * 表单所有数据有效性检查：当配置项里每一项都检查ok则表单才能整体有效
+			 * ***/
+			"validateAll" : function(){
+				var ok = true;
+				for( id in this.valid_range ){
+					ok = this.valid_range[id] && ok;
+				}
+				return ok;
+			},
+			/***
+			 * 表单某项数据有效性检查
+			 * prop: 关联数据项
+			 * reg: 正则
+			 * val: 待校验字符串
+			 * ***/
+			"validateOne":function(id,reg,val){
+				this.valid_range[id] = reg.test(val);
+				return this.valid_range[id];
+			}
+		};
+		function submit_data(){
+			var str = "\n";
+			for( prop in VallidObj.valid_val ){
+				str += prop+":"+VallidObj.valid_val[prop]+"\n";
+			}
+			alert("要提交的数据是："+str);
+		}
+		/***
+		 * 显示文本框的录入值
+		 * ***/
+		function showVal(context){
+			console.log( context );
+			
+			//console.log( context.value );
+			return false;
+		}
+		/***
+		 * 给每个按钮绑定正负实数显示和匹配逻辑
+		 * ***/
+		function check_is_shishu(context){
+			var value = context.value;
+			//界面上允许回显的值
+			context.value = value.match( regArray.reg1 );
+			//表单整理数据有效性检查
+			//1.检查当前录入项的有效性，取准确值
+			var isValOk = VallidObj.validateOne(context.id,regArray['reg2'],context.value);
+			if( isValOk ){//如果校验合格，则将取得准确数据进行存储
+				//VallidObj.valid_val[context.id] = parseFloat(context.value).toString().match(regArray['reg4'])[0];
+				VallidObj.valid_val[context.id] = parseFloat(context.value).toString();
+			}
+			else{
+				VallidObj.valid_val[context.id] = "";
+			}
+			//2.检查表单内所有录入项的有效性
+			if( VallidObj.validateAll() ){
+				document.getElementById("submit_btn").removeAttribute("disabled");
+			}
+			else{
+				document.getElementById("submit_btn").setAttribute("disabled","disabled");
+			}
+			//console.log( VallidObj.valid_range );
+		}
+		/***
+		 * 整数序列显示及取值正则
+		 * min:匹配下限
+		 * max:匹配上限
+		 * ***/
+		function check_is_int(context,regName){
+			var value = context.value;
+			context.value = value.match( regArray[regName] );
+			var isValOk = VallidObj.validateOne(context.id,regArray['reg5'],context.value);
+			if( isValOk ){ 
+				VallidObj.valid_val[context.id] = parseInt(context.value).toString();
+			}
+			else{
+				VallidObj.valid_val[context.id] = "";
+			}
+			//2.检查表单内所有录入项的有效性
+			if( VallidObj.validateAll() ){
+				document.getElementById("submit_btn").removeAttribute("disabled");
+			}
+			else{
+				document.getElementById("submit_btn").setAttribute("disabled","disabled");
+			}
+		}
+		//备注：对于＞0的要求，在规则reg3,reg4校验完之后，还要加上>0的js判断
+		//如果输入为0则提示红框，且提交button为disable
+		//如果不为0，则红框消失，根据正常逻辑去设置button的disable
+	</script>
+</html>

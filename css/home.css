@@ -1,0 +1,12 @@
+a.mui-icon.mui-icon-person
+{
+	color:#fff;
+}
+a.mui-icon.mui-icon-camera
+{
+	color:#fff;
+}
+.mui-table-view-cell.mui-active/*重写公共css*/
+{
+    /*background-color: #0062CC;*/
+}

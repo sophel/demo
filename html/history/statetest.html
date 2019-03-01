@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	<style>
+		#sidebar{
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width:280px;
+			background-color: lightgray;
+		}
+		a{
+			display: block;
+			margin-bottom: 20px;
+		}
+		#form1,#form2,#form3{
+			margin-left: 280px;
+			height: 300px;
+		}
+		.blue{
+			background-color: lightblue;
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.green{
+			background-color: lightgreen;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+	<body>
+		<div id="sidebar">
+			<button id="show1">表单1</button>
+			<button id="show2">表单2</button>
+			<button id="show3">表单3</button>
+		</div>
+		<section id="form1" class="blue">
+			<label>姓名：</label><input type="text" id="inputer1"/>
+			<button id="btn1">提交</button>
+		</section>
+		<section id="form2" class="yellow">
+			<label>姓名：</label><input type="text" id="inputer2"/>
+			<button id="btn2">提交</button>
+		</section>
+		<section id="form3" class="green">
+			<label>姓名：</label><input type="text" id="inputer3"/>
+			<button id="btn3">提交</button>
+		</section>
+	</body>
+	<script>
+		var isbluevisted = true;
+		var isyellowvisted = false;
+		var isgreenvisted = false;
+		var counter = 1;
+		function display( id,data ){
+			switch( id ){
+					case 'form1'://蓝色
+					$("#form2,#form3").addClass( 'hide' );
+					$("#form1").removeClass('hide');
+					$("#inputer1").val(data);
+					break;
+					case 'form2'://黄色
+					$("#form1,#form3").addClass( 'hide' );
+					$("#inputer1").val(data);
+					$("#form2").removeClass('hide');
+					break;
+					case 'form3'://黄色
+					$("#form1,#form2").addClass( 'hide' );
+					$("#inputer1").val(data);
+					$("#form3").removeClass('hide');
+					break;
+					default:break;
+					}
+			$("#mainsec").html(counter);
+		}
+		$(document).ready(function(){
+			display('form1','');
+			$("#btn1").click(function(e){
+				var val = $("#inputer1").val();
+				if( !val ){
+					alert('表单数据不能为空');
+				}
+				else{
+					var state = {'id':'form1','data':val};
+					window.history.replaceState(state,'','');
+				}
+				e.target.setAttribute('disabled','disabled');
+			});
+			$("#btn2").click(function(e){
+				
+				var val = $("#inputer2").val();
+				if( !val ){
+					alert('表单数据不能为空');
+				}
+				else{
+					var state = {'id':'form2','data':val};
+					window.history.pushState(state,'','');
+				}
+				e.target.setAttribute('disabled','disabled');
+			});
+			$("#btn3").click(function(e){
+				var val = $("#inputer3").val();
+				if( !val ){
+					alert('表单数据不能为空');
+				}
+				else{
+					var state = {'id':'form3','data':val};
+					window.history.pushState(state,'','');
+				}
+				e.target.setAttribute('disabled','disabled');
+			});
+			$("#show1").click(function(){
+				display('form1','');
+			});
+			$("#show2").click(function(){
+				display('form2','');
+			});
+			$("#show3").click(function(){
+				display('form3','');
+			});
+			window.addEventListener('popstate',function(e){
+				var state = e.state;
+				display( state.id,state.data );
+			});
+		});
+	</script>
+</html>

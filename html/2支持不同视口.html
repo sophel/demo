@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=2.0,width=device-width;"/>
+		<title></title>
+	</head>
+    <!--css2-只能查询媒体类别-->
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="../css/chapture2/screen.css">-->
+	<!--css3-除了类别，还可以查询横、竖屏状态-->
+	<!--<link rel="stylesheet" media="screen and (orientation: portrait)" href="../css/chapture2/screen.css" />-->
+	<!--css3-将媒体查询写入样式表-->	
+	<!--<link rel="stylesheet" href="../css/chapture2/screen.css" />-->
+	<style>
+		ul
+		{
+			padding:0 30px;
+			margin: 0;
+		}
+		li
+		{
+			padding:5px 2px;
+			width:auto;
+		}
+		#test
+		{
+			width:1000px;
+			margin: 0 auto;
+			background-color: #eee;
+			height: 300px;
+		}
+		#test>div
+		{
+			margin: 0 30px;
+			background-color: #ddd;
+			height: 200px;
+			font-size: 20px;
+			text-indent: 2em;
+		}
+	</style>
+	<body>
+		<ul style="list-style-type: none;">
+			<li>test</li>
+			<li>testtest</li>
+			<li>testtesttest</li>
+			<li>testtesttesttest</li>
+			<li>testtesttesttesttest</li>
+		</ul>
+		<div id="test">
+			<div>这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字</div>
+		</div>
+	</body>
+</html>

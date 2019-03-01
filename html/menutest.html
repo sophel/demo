@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../js/jquery.min.js" ></script>
+	<script>
+		$(document).ready(function(){
+			$(".main-menu>ul>li").hover(function(){//移入
+				$(this).find(".mega-wrapper").css("display","block");
+				$(this).find("a").addClass("active");
+				$(this).find("b").addClass("active");
+			},
+			function(){//移出
+				$(this).find(".mega-wrapper").css("display","none");
+				$(this).find("a").removeClass("active");
+				$(this).find("b").removeClass("active");
+			});
+		});
+	</script>
+	<style>
+		.header
+		{
+			background-color: #f8f8f8;
+			border-top:1px solid #e7e7e7;
+			border-bottom: 1px solid #e7e7e7;	
+		}
+		.main-menu
+		{
+			width:1000px;
+			margin:0 auto;
+			font-size: 16px;
+		}
+		.main-menu:after
+		{
+			clear: both;
+			content: '';
+			display: block;
+		}
+		.main-menu>ul
+		{
+			float:left;
+		}
+		.mega-wrapper
+		{
+			display:none;
+		}
+		.main-menu>ul,.mega-wrapper>ul
+		{
+			padding: 0;
+			margin:0;
+			list-style-type: none;
+		}
+		.main-menu>ul>li
+		{
+			float: left;
+			position: relative;
+		}
+		.main-menu>ul>li>a
+		{
+			padding: 15px;
+			display: block;
+			color: #777;
+		}
+		.main-menu>ul>li>a.active
+		{
+			padding-top:13px;
+			border-top:2px solid red;
+			color:#333;
+		}
+		.main-menu>ul>li:hover
+		{
+			background-color: #E7E7E7;
+		}
+		.main-menu>ul>li>a>b
+		{
+			display: inline-block;
+			margin: 0 0 0 3px;
+			padding:0;
+			height: 0;
+			width: 0;			
+			border-top: solid 4px #777;			
+			border-left: solid 4px rgba(0,0,0,0);			
+			border-right: solid 4px rgba(0,0,0,0);
+			vertical-align: middle;
+		}
+		.main-menu>ul>li>a>b.active
+		{
+			border-top: solid 4px #333;
+		}
+		.mega-wrapper
+		{
+			position: absolute;
+			border:1px solid #e7e7e7;
+		}
+		.mega-wrapper>ul
+		{
+			min-width: 170px;
+		}	
+		.mega-wrapper>ul>li
+		{
+			padding-left:15px;
+			height: 40px;
+			line-height: 40px;
+			border-top:1px solid #e7e7e7;
+		}
+		.triangle
+		{
+			margin: 30px;
+			height: 0px;
+			width: 0px;			
+			border-top: solid 100px red;			
+			border-left: solid 100px rgba(0,0,0,0);			
+			border-right: solid 100px rgba(0,0,0,0);
+			display: none;
+		}	
+		div>p
+		{
+			color:mediumvioletred;
+		}
+		div>p.active
+		{
+			color: red;
+		}	
+	</style>
+	<body>
+		<div class="header">
+			<div class="main-menu">
+			<ul>
+				<li>
+					<a>首页</a>
+				</li>
+				<li>
+					<a>制程能力<b></b></a>
+					<div class="mega-wrapper">
+						<ul class="mega">
+							<li>光刻</li>
+							<li>刻蚀&腐蚀</li>
+							<li>测量&测试</li>
+
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a>工业 4.0<b></b></a>
+					<div class="mega-wrapper">
+						<ul class="mega">
+							<li>自适应控制 </li>
+							<li>碰撞监测 </li>
+							<li>移机监测</li>
+							<li>振动监测</li>
+							<li>相关产品</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a>压力传感<b></b></a>
+					<div class="mega-wrapper">
+						<ul class="mega">
+							<li>压力传感器简介</li>
+							<li>压力传感器应用 </li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a>关于励德<b></b></a>
+					<div class="mega-wrapper">
+						<ul class="mega">
+							<li>公司简介</li>
+							<li>企业文化 </li>
+							<li>联系我们</li>
+						</ul>
+					</div>
+					
+				</li>
+			</ul>
+			
+		</div>
+		</div>
+		<div>
+			<p class="active">this is a parag.</p>
+		</div>
+		
+	</body>
+</html>

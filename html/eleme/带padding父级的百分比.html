@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wrapper{
+			width:500px;
+			padding:20px;
+			margin:50px auto;
+			background: lightgoldenrodyellow;
+			display: flex;
+			flex-direction: row;
+			box-sizing: border-box;
+			/*默认的是在交叉轴上stretch排布*/
+			align-items: stretch;
+		}
+		.left{
+			/*width:30%;*/
+			flex-basis: 30%;
+			height:0;
+			overflow: hidden;
+			padding-bottom: 30%;
+			background: lightblue;
+		}
+		img{
+			width:100%
+		}
+		.right{
+			flex:auto;
+			/*flex-basis: 70%;*/
+			background: lightgreen;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+	</style>
+	<body>
+		<div class="wrapper">
+			<div class="left">
+				<img src="https://fuss10.elemecdn.com/f/bf/3cdc8d5fbf543cc1df15b1cbcc00dpng.png?imageMogr/thumbnail/!130x130r/gravity/Center/crop/130x130/" />
+			</div>
+			<div class="right">
+				<div>123</div>
+				<div>456</div>
+				<div>789</div>
+			</div>
+		</div>
+	</body>
+</html>

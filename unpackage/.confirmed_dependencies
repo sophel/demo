@@ -1,0 +1,67 @@
+{
+  "html/login.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/login.css",
+      "css/common.css",
+      "fonts/mui.ttf",
+      "js/login.js",
+      "css/mui.min.css",
+      "js/validate.js",
+      "images/login-1.png"
+    ],
+    "refer": [
+      "html/home.html"
+    ]
+  },
+  "html/home.html": {
+    "resources": [
+      "css/home.css",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/cbd.png",
+      "images/shuijiao.jpg",
+      "js/home.js",
+      "js/mui.min.js",
+      "css/common.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/validate.js"
+    ],
+    "refer": [
+      "html/siderMenu.html"
+    ]
+  },
+  "html/siderMenu.html": {
+    "resources": [
+      "css/siderMenu.css",
+      "js/siderMenu.js"
+    ],
+    "refer": []
+  },
+  "html/dragbar.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/dragbar.png",
+      "js/jquery.min.js"
+    ],
+    "refer": []
+  },
+  "html/picView.html": {
+    "resources": [
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/shuijiao.jpg",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "js/jquery.min.js",
+      "images/cbd.jpg",
+      "images/sider-menu-bg.jpg",
+      "images/cbd.png"
+    ]
+  }
+}

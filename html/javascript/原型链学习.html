@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+//		function ancestor(){
+//			this.name ='default';
+//			this.age = 18;
+//		}
+//		ancestor.prototype = {
+//			printInfo:function(){
+//				console.log( this.name + "," + this.age );
+//			}
+//		};
+//		function parent( _name,_age ){
+//			this.name = _name;
+//			this.age = _age;
+//		}
+//		parent.prototype = new ancestor();
+//		
+//		var o1 = new parent('tester',20);
+//		var o2 = new parent();
+//		console.log('o1-----:');
+//		console.log( o1 );
+//		console.log('o2-----:');
+//  	console.log( o2 );
+//  	o1.printInfo.call(Object.getPrototypeOf(o1));
+//  	o2.printInfo.call(Object.getPrototypeOf(o2));
+    	
+    	//验证原型与对象属性完全不重合的情况
+	function ancestor(){
+			this.name ='default';
+			this.age = 18;
+		}
+		ancestor.prototype = {
+			printInfo:function(){
+				console.log( this.name + "," + this.age );
+			}
+		};
+		function parent(){
+
+		}
+		parent.prototype = new ancestor();
+		
+		var o1 = new parent();
+		o1.printInfo();
+	</script>
+</html>

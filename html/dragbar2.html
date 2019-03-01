@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>dragbar</title>
+</head>
+<script type="text/javascript" src="../js/mui.min.js" ></script>
+<style>
+body
+{
+background-color:#ccc;
+}
+.my-progress
+{
+	width: 417px;
+	display: inline-block;
+	height: 40px;
+	margin-left: 50px;
+	float: left;
+	position:relative;
+}
+#my-canvas
+{
+	margin:0;
+	padding:0;
+	background-image:url(../images/progressbar_bgd.png);
+	background-repeat: repeat-x;
+	background-position: center;
+	height:40px;
+}
+#drag-bar
+{
+	position: absolute;
+	left:-20px;
+	top:0px;
+	width: 40px;
+	height: 40px;
+	background-image:url(../images/dragbar.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#my-dialogue
+{
+	position: absolute;
+	left:600px;
+	height: auto;
+	background-color: #fff;
+	width:300px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function()
+{
+	//设置绘制对象属性
+	window.cxt = document.getElementById("my-canvas").getContext("2d");
+	window.cxt.fillStyle = "#005BAC"; //设置蓝色填充，准备进度绘制
+	//window.cxt.fillRect(0, 17, 100, 5.5); //绘制
+	//绑定方法
+	document.getElementById("drag-bar").addEventListener("dragstart",function(e){
+		
+		try
+		{
+			alert("hello world");	
+		}
+		catch(ex)
+		{
+			alert( ex.message );
+		}
+		
+//		e = e || event;
+//		str = "";
+//		for( prop in e )
+//		{
+//			str += prop+":"+e[prop]+"\n\n";
+//		}
+		//console.log( e );
+		//alert( str );
+		//document.getElementById("my-dialogue").innerHTML = str;
+	});
+//	document.getElementById("drag-bar").addEventListener("touchstart",function(e){
+//		alert( "hello world" );
+//	});
+}
+</script>
+<body>
+<div class="my-progress">
+	<canvas  height="40" width="417px" id="my-canvas" ></canvas><!--canvas高度属性需显式标定-->
+	<div id="drag-bar" draggable="true"></div>
+</div>
+<div id="my-dialogue"></div>
+</body>
+</html>

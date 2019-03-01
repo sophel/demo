@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0,width=device-width;"/>
+		<link rel="stylesheet" href="../../plugins/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.min.css" />
+	</head>
+	<style>
+		/***
+		 * 方式一：用border来实现
+		 * ***/
+		/*h3{
+			border-left: 5px solid #e940b9;
+			padding-left: 10px;
+		}*/
+		/***
+		 * 方式二：用before/after伪类和图标字体库来实现
+		 * ***/
+		h3::before{
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			content: "\f0c8";
+			color: #e940b9;
+			margin-right: 10px;
+		}
+	</style>
+	<body>
+		<h3>Accommodations</h3>
+		<!--fa-fw属性限制所以图标大小一致-->
+		<div><i class="fas fa-home fa-fw" style="background:MistyRose"></i> Home</div>
+		<div><i class="fas fa-info fa-fw" style="background:MistyRose"></i> Info</div>
+		<div><i class="fas fa-book fa-fw" style="background:MistyRose"></i> Library</div>
+		<div><i class="fas fa-pencil-alt fa-fw" style="background:MistyRose"></i> Applications</div>
+		<div><i class="fas fa-cog fa-fw" style="background:MistyRose"></i> Settings</div>
+	
+		<!--fa-ul,fa-li-->
+		<!--<ul class="fa-ul">
+			<li><span class="fa-li"><i class="fas fa-check-square"></i></span>List icons can</li>
+			<li><span class="fa-li"><i class="fas fa-check-square"></i></span>be used to</li>
+			<li><span class="fa-li"><i class="fas fa-spinner fa-pulse"></i></span>replace bullets</li>
+			<li><span class="fa-li"><i class="far fa-square"></i></span>in lists</li>
+		</ul>-->
+		
+		<!--quota-->
+		<!--<i class="fas fa-quote-left fa-2x fa-pull-left fa-border"></i>
+Gatsby believed in the green light, the orgastic future that year by year recedes before us.
+It eluded us then, but that’s no matter — tomorrow we will run faster, stretch our arms further...
+And one fine morning — So we beat on, boats against the current, borne back ceaselessly into the past.-->
+	<!--<div class="fa-3x">
+		<i class="fas fa-spinner fa-spin"></i>
+		<i class="fas fa-spinner fa-pulse"></i>
+	</div>-->
+	
+	</body>
+</html>

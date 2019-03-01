@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	</head>
+	<script>
+		$(document).ready(function(){
+			$("#toggler").click(function(){
+				$("body").toggleClass("sidebar-open");
+			});
+		});
+	</script>
+	<style>
+		html,body{
+			padding: 0;
+			margin: 0;
+			width:100%;
+			height: 100%;
+		}
+		#sidebar{
+			width:250px;
+			visibility: hidden;
+			position: absolute;
+			left:0;
+			top:0;
+			height: 100%;
+			background:rgb(214, 228, 240); 
+			transition: all 0.25s;
+			-moz-transition: all 0.25s;	/* Firefox 4 */
+			-webkit-transition: all 0.25s;	/* Safari 和 Chrome */
+			-o-transition: all 0.25s;	/* Opera */
+			overflow: hidden;
+			-ms-transform: translate(-100%,0);	/* IE 9 */
+			-webkit-transform: translate(-100%,0);	/* Safari and Chrome */
+			-o-transform: translate(-100%,0);		/* Opera */
+			-moz-transform: translate(-100%,0);		/* Firefox */
+		}
+		.sidebar-open #sidebar{
+			visibility: visible;
+			-ms-transform: translate(0,0);	/* IE 9 */
+			-webkit-transform: translate(0,0);	/* Safari and Chrome */
+			-o-transform: translate(0,0);		/* Opera */
+			-moz-transform: translate(0,0);		/* Firefox */
+		}
+		.sidebar-open #wrapper{
+			transform: translate(250px,0);
+			-ms-transform: translate(250px,0);	/* IE 9 */
+			-webkit-transform: translate(250px,0);	/* Safari and Chrome */
+			-o-transform: translate(250px,0);		/* Opera */
+			-moz-transform: translate(250px,0);		/* Firefox */
+		}
+		#wrapper{
+			transition: all 0.25s;
+			-moz-transition: all 0.25s;	/* Firefox 4 */
+			-webkit-transition: all 0.25s;	/* Safari 和 Chrome */
+			-o-transition: all 0.25s;	/* Opera */
+		}
+		
+		#wrapper header{
+			height: 50px;
+			background-color: #005BAC;
+		}
+		#toggler{
+			width:50px;
+			height: 50px;
+			background-color: transparent;
+			border:0;
+			padding: 0;
+			color: #fff;
+			position: relative;
+		}
+		.sidebar-open #toggler .first{
+			top: 24px;
+			transform: rotate(45deg);
+			-ms-transform: rotate(45deg);	/* IE 9 */
+			-webkit-transform: rotate(45deg);	/* Safari and Chrome */
+			-o-transform: rotate(45deg);		/* Opera */
+			-moz-transform: rotate(45deg);		/* Firefox */
+		}
+		.sidebar-open #toggler .middle{
+			display: none;
+		}
+		.sidebar-open #toggler .last{
+			top: 24px;
+			transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);	/* IE 9 */
+			-webkit-transform: rotate(-45deg);	/* Safari and Chrome */
+			-o-transform: rotate(-45deg);		/* Opera */
+			-moz-transform: rotate(-45deg);		/* Firefox */
+		}
+		#toggler div{
+			height: 2px;
+			width:20px;
+			background: #fff;
+			position: absolute;
+			left:15px;
+		}
+		#toggler .first{
+			top:18px;
+		}
+		#toggler .middle{			
+			top:24px;
+		}
+		#toggler .last{			
+			top:30px;
+		}
+		.content{
+			background-color: #eee;
+		}
+	</style>
+	<body>
+		<div id="sidebar">this is sidebar.</div>
+		<div id="wrapper">
+			<header>
+				<button id="toggler">
+					<div class="first"></div>
+					<div class="middle"></div>
+					<div class="last"></div>
+				</button>
+			</header>
+			<div class="content">
+				<p>para1</p>
+				<p>para2</p>
+				<p>para3</p>
+			</div>
+		</div>
+	</body>
+</html>

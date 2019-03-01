@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	</head>
+	<style>
+		html,body{
+			padding: 0;
+			margin: 0;
+		}
+		.wrapper{
+			width:60%;
+			margin:40px auto;
+			height: 400px;
+			background: lightgreen;
+		}
+		.panel1{
+			height: 100px;
+			background-color: lightgoldenrodyellow;
+			margin-top:20px;
+		}
+		.panel2{
+			height: 50px;
+			background-color: lightgreen;
+		}
+		.panel3{
+			height: 60px;
+			background-color: lightblue;
+		}
+		.animate{
+			height: 50px;
+			margin-top:10px;
+			background-color: #DD524D;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("button:first-child").click(function(){
+				var dom = document.querySelector(".wrapper");
+				if(dom.classList.contains('block')){
+					dom.classList.remove("block");
+					dom.classList.add("hide");
+					$(".wrapper").slideUp(300);
+				}
+				else if(dom.classList.contains('hide')){
+					dom.classList.remove("hide");
+					dom.classList.add("block");
+					$(".wrapper").slideDown(300);
+				}
+				
+			});
+		});
+	</script>
+	<body>
+		<button>展开/折叠</button>
+		<div class="wrapper block">
+			<!--<div class="panel1">
+				<div class="animate"></div>
+			</div>
+			<div class="panel2"></div>
+			<div class="panel3"></div>-->
+		</div>
+	</body>
+</html>

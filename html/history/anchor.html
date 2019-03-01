@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	<style>
+		#section1{
+			margin-left: 280px;
+			height: 400px;
+			background-color: lightblue;
+			margin-bottom: 10px;
+		}
+		#section2{
+			margin-left: 280px;
+			height: 400px;
+			background-color: lightgoldenrodyellow;
+			margin-bottom: 10px;
+		}
+		#section3{
+			margin-left: 280px;
+			height: 400px;
+			background-color: lightgreen;
+			margin-bottom: 10px;
+		}
+		#sidebar{
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width:280px;
+			background-color: lightgray;
+		}
+		a{
+			display: block;
+			margin-bottom: 20px;
+		}
+	</style>
+	<body>
+		<div id="sidebar">
+		<a href="#section1">go to section1</a>
+		<a href="#section2">go to section2</a>
+		<a href="#section3">go to section3</a>
+		</div>
+		
+		<section id="section1"></section>
+		<section id="section2"></section>
+		<section id="section3"></section>
+	</body>
+	<script>
+		$(document).ready(function(){
+			window.onhashchange = function(e){
+				console.log( e );
+				console.log( window.location.hash );
+				console.log( window.history );
+			}
+		});
+	</script>
+</html>

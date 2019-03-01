@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="myslider.css" />
+	<body>
+		<div class="my-silder">
+			<div class="my-slider-group">
+				<div class="my-silder-item my-silder-item-duplicated">
+					<img src="images/yuantiao.jpg"/>
+				</div>
+				<div class="my-silder-item">
+					<img src="images/cbd.jpg"/>
+				</div>
+				<div class="my-silder-item">
+					<img src="images/muwu.jpg"/>
+				</div>
+				<div class="my-silder-item">
+					<img src="images/shuijiao.jpg"/>
+				</div>
+				<div class="my-silder-item">
+					<img src="images/yuantiao.jpg"/>
+				</div>
+				<div class="my-silder-item my-silder-item-duplicated">
+					<img src="images/cbd.jpg"/>
+				</div>
+			</div>
+			<div class="my-silder-prev">
+				<span class="bar-first"></span>
+				<span class="bar-last"></span>
+			</div>
+			<div class="my-silder-next">
+				<span class="bar-first"></span>
+				<span class="bar-last"></span>
+			</div>
+		</div>
+	</body>
+	<script>
+		var Slider = function( dom ){
+			this.slidedom = dom;
+			this.slideData = {
+				//当前页码索引
+				slideNumber:0
+			};
+			this.slideEvent = new CustomEvent('slide',{detail:this.slideData});
+			this.prev = this.createPrev( this.slidedom );
+			this.next = this.createNext( this.slidedom );
+			
+		}
+		Slider.prototype = {
+			createPrev:function( dom ){
+				var nodePrev = document.createElement("div");
+				nodePrev.setAttribute('class','my-silder-prev');
+				nodePrev.innerHTML = "<span class='bar-first'></span><span class='bar-last'></span>";
+				dom.appendChild( nodePrev );
+				return nodePrev;
+			},
+			createNext:function( dom ){
+				var nodeNext = document.createElement("div");
+				nodePrev.setAttribute('class','my-silder-next');
+				nodePrev.innerHTML = "<span class='bar-first'></span><span class='bar-last'></span>";
+				dom.appendChild( nodePrev );
+				return nodeNext;
+			},
+			createIndacator:function(){
+
+			},
+			addEvents:function(){
+				this.prev.addEventListener('click',function(){
+					console.log( 'clicked prev' );
+				});
+				this.next.addEventListener('click',function(){
+					console.log( 'clicked next' );
+				});
+			}
+			
+		};
+		function SliderFamily(){
+			this.silderdoms = document.querySelectorAll( ".my-silder" );
+			this.sliders = this.wrapsliderdoms( silderdoms );
+		}	
+		SliderFamily.prototype = {
+			wrapsliderdoms:function( sliderdoms ){
+//				var sliderArr = [];
+//				sliderdoms.forEach( function(v){
+//					sliderArr.push( new Slider(v) );
+//				} );
+//				return sliderArr;
+			}
+		};
+		SliderFamily();
+	</script>
+</html>

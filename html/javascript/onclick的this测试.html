@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="tab1" myonclick = "console.log(this.id);console.log(this)">Tab1</div>
+		<div id="tab2">Tab2</div>
+	</body>
+	<script>
+	//扩展HTMLDivElement原型
+	HTMLElement.prototype.clickHandle = function(){
+		//1.检查dom标签里有myonclick属性
+		var _evalClickStr = this.getAttribute( "myonclick" );
+		//2.检查dom有无指定myonclick方法
+		if( !!this.myonclick  && typeof this.myonclick === "function" ){
+			var _clickHandle = this.myonclick;
+		}
+		var nativeEventBind = this.addEventListener || this.attachEvent;
+		if( !!nativeEventBind ){
+			nativeEventBind( 'click',(function( e ){
+				//执行eavl代码串
+				eval( _evalClickStr );
+				//执行myonclick事件处理函数
+				_clickHandle.apply( this,e );
+			}).bind(this) );
+		}
+		else return;
+	}
+	
+	var tab1 = document.getElementById( "tab1" );
+	tab1.myonclick = function(){
+		console.log( this.id );
+	};
+	tab1.clickHandle();
+	
+	</script>
+</html>

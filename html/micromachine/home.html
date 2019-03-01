@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" type="text/css" href="templates/assets/css/animate.css" />
+
+<div class="simpleText">
+	<div class="transform_right" data-animate data-animation-classes="animated fadeInRight100">
+		<p class="arial"><b>Welcome to IEEE/ASME AIM 2018!</b></p>
+		<p class="arial">The 2018 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM 2018)
+will be held on July 9-12, 2018, Auckland, New Zealand.
+AIM 2018 will bring together an international community of experts to discuss the state-of-the-art
+for new research results, perspectives of future developments, and innovative applications
+relevant to mechatronics, robotics, control, and automation.<br/></p>
+		<p class="arial">
+		<b>The committee would like to appreciate all associate editors of conference editorial board
+for their great job for AIM2018, the list of AEs to AIM2018 can be found here.</b>
+		<br>
+		</p>
+	</div>
+	
+</div>
+<script src="templates/assets/js/dist/animate.js"></script>
+	<script>
+        var animate = new Animate({
+            target: '[data-animate]',
+            animatedClass: 'visible',
+            offset: [0.1, 0.1],
+            delay: 0,
+            remove: false,
+            reverse: true,
+            scrolled: false,
+            debug: true,
+            onLoad: true,
+            onScroll: true,
+            onResize: false,
+            callbackOnInit: function() {
+                console.log('Initialised');
+            },
+            callbackOnAnimate: function(element) {
+                console.log(element)
+            }
+        });
+
+        animate.init();
+    </script>

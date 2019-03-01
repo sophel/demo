@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wrapper{
+			position: relative;
+		}
+		form{
+			position: absolute;
+			right:10px;
+			width:415px;
+			background:#eee;
+		}
+		form input{
+			width:100%;
+			padding:15px 25px;
+			border:1px solid #ccc;
+			background:#fff;
+			border-radius:3px;
+			/*加上border-box属性，border+padding将算在width内*/
+			box-sizing:border-box;
+		}
+		button{
+			background:lightseagreen;
+			width:100%;
+			height: 50px;
+			border-radius: 3px;
+			border:1px solid lightseagreen;
+			color:#fff;
+			padding: 0;
+		}
+		span:nth-child(1){
+			background: lightgoldenrodyellow;
+		}
+		span:last-child{
+			background: lightgreen;
+		}
+	</style>
+	<body>
+		<!--<div class="wrapper">
+			<form>
+				<input />
+			</form>
+		</div>-->
+		<div>
+			<button>TEST</button>
+			<!--<span>1</span>
+			<span>2</span>-->
+		</div>
+		
+	</body>
+</html>

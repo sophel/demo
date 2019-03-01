@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	* {
+        box-sizing: border-box;
+      }
+    html, body{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    .container{
+        width:100%;
+    }
+    .container:after{
+        display: table;
+        content:"";
+        clear:both;
+    }
+     
+    .container .cl{
+        float:left;
+     	border: 1px solid red;
+     	height: 200px;
+     }
+     
+    .main{
+        width:100%;
+        padding:0 290px 0 320px;
+        background-color: blue;
+    }
+    .sub{
+        width: 320px;
+        margin-left:-100%;
+        background-color: white;
+    }
+    .extra{
+        width: 290px;
+        margin-left:-290px;
+        background-color: yellow;
+    }
+    .wrapper
+    {
+    	height: 320px;
+    	/*overflow: auto;*/
+    }
+    .wrapper>div.left
+    {
+    	float:left;
+    	width:200px;
+    	height: 100%;
+    	background-color: greenyellow;
+    }
+    .wrapper>div.center
+    {
+    	/*float:left;
+    	width:100%;*/
+    	margin-left:200px;
+    	margin-right: 200px;
+    	height: 100%;
+    	background-color: deepskyblue;
+    }
+    .wrapper>div.right
+    {
+    	float:right;
+    	width:200px;
+    	height: 100%;
+    	background-color: greenyellow;
+    }
+    .wrapper2
+    {
+    	width: 100%;
+    }
+    .wrapper2>.left2
+    {
+    	float:left;
+    	width:220px;
+    	height: 100px;
+    	background-color: lawngreen;
+    	margin-left:-100%;
+    }
+    .wrapper2>.center2
+    {
+    	float:left;
+    	width:100%;
+    	height: 100px;
+    	background-color: cadetblue;
+    }
+    .wrapper2>.right2
+    {
+    	float:left;
+    	width:220px;
+    	height: 100px;
+    	background-color:lightseagreen;
+    	margin-left:-220px;
+    }
+    nav
+    {
+    	display: table;
+		width: 1000px;
+		margin: 0 auto;
+    }
+    nav ul
+    {
+    	display: table-row;
+    }
+    nav ul li
+    {
+    	display: table-cell;
+    	text-align: center;
+    	/*background: -webkit-linear-gradient(left,#ccc,#eee);
+		background: -moz-linear-gradient(left,#ccc,#eee);
+		background: -ms-linear-gradient(left,#ccc,#eee);
+		background: linear-gradient(left,#ccc,#eee);*/
+    }
+    /*nav ul li:nth-child(even)
+    {
+    	color: #fe0208;
+    }
+    nav ul li:nth-child(odd)
+    {
+    	color: #555;
+    }*/
+   /*nav ul li:nth-child(3n+1)
+   {
+		color:red;
+   }*/
+  	nav ul li:nth-child(n+2)/*从第二个以后的所有都设置为该样式*/
+  	{
+  		color:red;
+  	}
+	</style>
+	<body>
+		<nav>
+			<ul>
+				<li>Why?</li>
+				<li>About</li>
+				<li>Offline</li>
+				<li>Redemption</li> 
+				<li>Videos/clips</li>
+				<li>Quiz</li>
+			</ul>
+		</nav>
+		<div class="container">
+		    <div class="cl main">
+		    	<div class="cl main"></div>
+			    <div class="cl sub"></div>
+			    <div class="cl extra"></div>
+		    </div>
+		    <div class="cl sub"></div>
+		    <div class="cl extra"></div>
+		</div>
+		<!--<div class="wrapper">
+			<div class="left"></div>
+			<div class="right"></div>
+			<div class="center"></div>
+		</div>-->
+		<!--<div class="wrapper2">
+			<div class="center2"></div>
+			<div class="left2"></div>
+			<div class="right2"></div>
+		</div>-->
+	</body>
+
+</html>

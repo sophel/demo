@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="startTimer()">启动timer</button>
+		<button onclick="endTimer()">停止timer</button>
+	</body>
+	<script>
+		var o = {
+			timer:null
+		};
+		function startTimer(){
+			o.timer = setTimeout(()=>{
+				console.log( 'hi,timer executed' );
+			},5000);
+		}
+		function endTimer(){
+			clearTimeout( o.timer );
+		}
+	</script>
+</html>

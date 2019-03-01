@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+		/**1.数字**/
+//		var num = 0X55;
+//		console.log( num );
+//		for( var i=0;i<10;i++ )
+//		{
+//			console.log( Math.random() );//随机生成一个0~1之间的数字
+//		}
+//		console.log( 1/0 );//Infinity
+//		console.log( -1/0 );//-Infinity
+//		console.log(5E-324/1.7976E308);//最小数正数/最大数得到+0
+//		console.log(-5E-324/1.7976E308);//最小数负数/最大数得到-0
+		/**2.字符串**/
+//		console.log( "123"+"111" );//字符串
+//		console.log( "123"+111 );//字符串
+		/*3.布尔值*/
+//		var result = "";//"",+0,-0,NaN,undefined,null当做bool值均被转化为false
+//		if(result)
+//		{
+//			console.log( true );
+//		}
+//		else
+//		{
+//			console.log( false );
+//		}
+//		var str1 = "123";
+//		var str2 = "456";
+//		var str3 = "789";
+//		console.log( str1 || str2 || str3 );
+//		console.log( str1 && str2 && str3 );
+		/**3.6包装对象**/
+		//原始类型：字符串、布尔值，数字量在调用属性时，经过了一次“包装对象”的过程
+		//“包装对象”产生一个临时包装对象，在属性调用完毕后，临时包装对象被销毁
+		//“读”会生成包装对象，该对象和普通对象一样，对于不存在的属性无法获取，读完即销毁
+		//“写”会生成包装对象，该对象可新增属性并赋值，并在“写操作”结束后销毁临时对象
+//		var s = "test";
+//		var n = 1;
+//		var b = true;
+//		var S = new String(s);
+//		var N = new Number(n);
+//		var B = new Boolean(b);
+//		console.log( typeof(s) );//string
+//		console.log( typeof(n) );//number
+//		console.log( typeof(b) );//boolean
+//		console.log( typeof(S) );//object
+//		console.log( typeof(N) );//object
+//		console.log( typeof(B) );//object
+//		console.log( s == S );//值相等
+//		console.log( s === S );//类型不相等
+//		console.log("7"+"5");//75：字符串，未转化
+//		console.log("7"*"5");//35：转化成了数字
+        //值类型在比较时可能会发生转化，但这并不意味着两个值相等
+//		if( !undefined )
+//		{
+//			console.log("undefined is interpreted as false");
+//		}
+//		console.log( undefined == false );
+//		console.log( Object(null) );
+//		console.log( {x:1}.toString() );
+//		console.log([0,1,2].toString());
+//		scope = "global";
+//		function checkScope()
+//		{
+//			//局部变量在声明时必须使用var,否则可能会覆盖掉全局同名变量
+//			scope = "local";//此处是直接修改全局变量
+//			myScope = "local";
+//			return [scope,myScope];
+//		}
+//		console.log( checkScope().toString() );
+//		var truevar = 1;//创建一个不可配置的，即无法删除的属性
+//		fakevar = 2;
+//		console.log( window.truevar );
+//		console.log( window.fakevar );
+//		console.log( delete window.truevar );//false
+//		console.log( delete window.fakevar );//true
+//		o = {x:1,y:2,z:3};
+//		a = [],i=0;
+//		for(a[i++] in o);//遍历属性，将属性名赋值给左侧变量/表达式
+//		console.log(a.toString());
+//		console.log( a );
+//		for(i in a)//数组是特殊的对象，起属性名是索引序号
+//		{
+//			console.log(i);
+//		}
+//	function factorial( x )
+//	{
+//		if( x<0 )
+//		{
+//			throw new Error("计算阶乘的必须是整数");//输出在控制台
+//		}
+//		else
+//		{
+//			for(result = 1;x>1;result = result*x,x--);
+//			return result;
+//		}
+//	}
+//	var rst = factorial(4);
+//	console.log( rst );
+//	var o = {x:1,y:2};
+//	function P(){};
+//	P.prototype = o;
+//	var p = new P();
+//	p.z = 3;
+//	for( prop in p )//可枚举的
+//	{
+//		if( p.hasOwnProperty(prop) )//自有的
+//		console.log( prop+"："+p[prop] );//z:3,自有的可枚举属性
+//	}
+//	console.log( "toString" in o );
+//	console.log( o.hasOwnProperty("toString") );
+//	console.log( o.propertyIsEnumerable("toString") );
+//function inherit( o )
+//{
+//	try
+//	{
+//		if( !o ) throw TypeError();
+//		if( Object.create )return Object.create( o );
+//		var type = typeof( o );
+//		if( type != "object" && type != "function")throw TypeError();
+//		function f(){};
+//		f.prototype = o;
+//		return new f();
+//	}
+//	catch(ex) 
+//	{
+//		console.log( ex.message );
+//	}
+//}
+//var o = 
+//{
+//	r:1,
+//	get c(){ return 2*Math.PI*this.r; },//存取器属性，描述类似函数但使用方式和属性一致
+//	set c(val){ this.r = val/(2*Math.PI); } 
+//}; 
+//var p = inherit( undefined );
+//var serianum = 
+//{
+//	$n:0,//私有属性
+//	get next(){ return this.$n++ },
+//	set next(val)
+//	{
+//		try
+//		{
+//			if( val > this.$n )
+//			{
+//				this.$n = val;
+//			}
+//			else
+//			{
+//				throw "序列号的值不能小于当前值";
+//			}
+//		}
+//		catch(ex)
+//		{
+//			console.log( ex.message );
+//		}
+//		
+//	}
+//};
+//for( var i=0;i<5;i++ )
+//{
+//	console.log( serianum.next );
+//}
+//serianum.next = 1;
+////获取属性的特性
+//var o = {x:1};
+//console.log( Object.getOwnPropertyDescriptor(o,"x")  );
+//console.log( Object.getOwnPropertyDescriptor(o,"y")  );//undefined,没有这个属性
+//console.log( Object.getOwnPropertyDescriptor(o,"toString")  );//undefined,继承属性
+//设置属性的特性
+//var o = {};
+//Object.defineProperty(o,"x",{value:1,writable:true,enumerable:true,configurable:false});
+//Object.defineProperty(o,"x",{value:2}); //writable:true时可重新定义value,writable:false时重新修改value失败
+//console.log( o );
+//存取器的配置
+//var o = { };
+//×不能对还未定义的属性进行引用or赋值
+//Object.defineProperty( o,"x",{set:function(){ this. },get:function(){ return this.x; }});
+//console.log( o.x );
+//var o = {};
+//Object.defineProperty( o,"x",{value:1,writable:true,enumerable:true,configurable:true} );
+//Object.defineProperty( o,"y",{value:1,writable:true,enumerable:true,configurable:true} );
+//Object.defineProperty( o,"r",{get:function(){ return Math.sqrt( this.x*this.x+this.y*this.y ); },enumerable:true,configurable:true} );
+//console.log( o.r );
+//对象的扩展
+//var o = {x:1,y:2};
+//Object.defineProperty( o,"z",{value:3,writable:true,enumerable:false,configurable:true} );
+//var names = Object.getOwnPropertyNames( o );
+//console.log( names.toString() );
+//console.log( Object.getOwnPropertyDescriptor(o,"z") );
+//Object.defineProperty(Object.prototype,"extend",{ writable:true,enumerable:false,configurable:true,value:function(o){
+//	var names = Object.getOwnPropertyNames( o );
+//	for( var i=0;i<names.length;i++ )
+//	{
+//		if( names[i] in this )continue;//不做copy
+//		var desc = Object.getOwnPropertyDescriptor( o,names[i] );
+//		Object.defineProperty(this,names[i],desc);
+//	}
+//} });
+////对象的三个属性
+//function classof(o)
+//{
+//	if( o === null )return "null";
+//	if( o === undefined )return "undefined";
+//	return Object.prototype.toString.call(o).slice(8,-1);
+//}
+////原型属性
+//var  o ={x:1,y:2};
+//function P(){};
+//P.prototype = o;
+//var p = new P();
+//p.x = 11;
+//p.y = 22;
+////console.log( p );
+////console.log( Object.getPrototypeOf(p) );
+////类属性
+////可扩展性
+////console.log( Object.isExtensible(o) );//自定义对象，可扩展
+////console.log( Object.isExtensible(p) );
+//Object.preventExtensions( p );//设置为不可扩展了，即不能添加新的属性，包括继承父类的同名属性都不可以
+////console.log( p );
+////delete p.x;//依然可以删除属性
+////console.log( p );
+//Object.seal( p );//密封了：不可再删除，但仍然可写
+////console.log( delete p.x );//false,删除失败
+////p.x = 33;//仍然可写
+////console.log( p );
+////console.log( Object.isSealed(p) );//密封的
+//Object.freeze( p );
+//p.a = 1;//扩展失败
+//delete p.x;//删除失败
+//p.y = 33;//更新失败
+//console.log( p );//freeze的密封级别是最高的
+//console.log( Object.isFrozen(p) );
+////类和对象
+//console.log( String.prototype );
+//String.prototype.printMe = function()
+//{
+//	console.log( "hello world" );
+//}
+//var str = new String( "123456" );
+//str.printMe();
+
+   </script> 
+	<body>
+	<div id="test" style="width:100px;height:20px;background-color: #005bac;"></div>
+	</body>
+	<script type="text/javascript">
+		//var d = document.getElementById( "test" );
+		//console.log( d.style["width"] );
+		//document.body.appendChild( d );
+		//定义了$符，其为函数表达式变量
+		var $ = function(id){ return document.getElementById(id) };
+		console.log( $("test").style );
+	</script>
+	<div id="1">123456</div>
+</html>

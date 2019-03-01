@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet"/>
+		<link href="../css/common.css" rel="stylesheet"/>
+		<link href="../css/home.css" rel="stylesheet">
+		<script src="../js/mui.min.js" type="text/javascript"></script>
+		<script src="../js/validate.js" type="text/javascript"></script>
+		<script src="../js/home.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a id="person" class="mui-icon mui-icon-person mui-pull-left" href=""></a>
+			<a id="info" class="mui-icon mui-icon-camera mui-pull-right" ></a>
+		    <h1 class="mui-title">首页</h1>
+		</header>
+		<div class="mui-content">
+		   <ul class="mui-table-view mui-grid-view mui-grid-9">
+		            <li data-right="1" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-home"></span>
+		                    <div class="mui-media-body">Home</div></a></li>
+		            <li data-right="2" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+		                    <div class="mui-media-body">Email</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-chatbubble"></span>
+		                    <div class="mui-media-body">Chat</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-location"></span>
+		                    <div class="mui-media-body">location</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-search"></span>
+		                    <div class="mui-media-body">Search</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-phone"></span>
+		                    <div class="mui-media-body">Phone</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-gear"></span>
+		                    <div class="mui-media-body">Setting</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-info"></span>
+		                    <div class="mui-media-body">about</div></a></li>
+		           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-more"></span>
+		                    <div class="mui-media-body">more</div></a></li>
+		        </ul>
+		        <ul class="mui-table-view">
+		            <li class="mui-table-view-cell mui-collapse">
+		                <a class="mui-navigate-right" href="#">最新消息</a>
+		                <div class="mui-collapse-content">
+		                    <p>消息-2017-01-01</p>
+		                    <p>消息-2017-01-02</p>
+		                    <p>消息-2017-01-03</p>
+		                    <p>消息-2017-01-04</p>
+		                </div>
+		            </li>
+
+		    </ul><!--九宫格-->
+	        <a href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block">选择名片信息</a>
+			<div id="popover" class="mui-popover">
+				<ul class="mui-table-view">
+				   <li class="mui-table-view-cell"><a href="#">Item1</a></li>
+				   <li class="mui-table-view-cell"><a href="#">Item2</a></li>
+				   <li class="mui-table-view-cell"><a href="#">Item3</a></li>
+				   <li class="mui-table-view-cell"><a href="#">Item4</a></li>
+				   <li class="mui-table-view-cell"><a href="#">Item5</a></li>
+				</ul>
+			</div>
+			<button type="button" class="mui-btn">默认</button>
+			<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
+			<button type="button" class="mui-btn mui-btn-success">绿色</button>
+			<button type="button" class="mui-btn mui-btn-warning">黄色</button>
+			<button type="button" class="mui-btn mui-btn-danger" >红色</button>
+			<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header mui-card-media" style="background-image: url(../images/cbd.png);opacity: 0.5;">天气：晴，2~17°</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<img src="../images/yuantiao.jpg" alt="" width="100%">
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">页脚</div>
+			</div>
+			<div class="mui-input-row mui-checkbox mui-right">
+  				<label>checkbox左侧显示示例</label>
+  				<input name="checkbox1" value="Item 1" type="checkbox">
+			</div>
+			<!--列表 start-->
+			<ul class="mui-table-view">
+    			<li class="mui-table-view-cell">Item 1
+    				<span class="mui-badge mui-badge-primary">1</span>
+    			</li>
+    			<li class="mui-table-view-cell">Item 2
+    				<span class="mui-badge mui-badge-success">2</span>
+    			</li>
+   				<li class="mui-table-view-cell">
+   					<a class="mui-navigate-right">Item 3</a>
+   					<span class="mui-badge mui-badge">3</span>
+   				</li>
+			</ul>
+			<!--列表 end-->
+			<!--图文列表 start-->
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			</ul>
+			<!--图文列表 end-->
+			
+		</div>
+	</body>
+</html>

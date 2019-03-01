@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		function eventHandler( _name,_age ){
+			this.name = _name;
+			this.age = _age;
+			this._events = {
+				change:[
+					//_callback
+					function(){
+						this.name += '_';
+						this.age += '_';
+					}
+				],
+				say:[
+					//_callback
+					function( e ){
+						console.log( this.name );
+						console.log( this.age );
+						console.log( e );
+					}
+				]
+			};
+			this.fireEvent = function( eventName,e){
+				this._events[ eventName ].forEach( (function( f,i ){
+					f.call(this,e);
+				}).bind(this) );
+			}
+		}//end of constructor
+		
+		var e1 = new eventHandler( 'msl',20 );
+		e1.fireEvent( 'change' );
+	</script>
+</html>

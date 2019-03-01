@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../../js/jquery.min.js"></script>
+	<body>
+		A
+		<input type="text" />
+		<a href="historyB.html?taker=1">打开B</a>
+	</body>
+	<script>
+		$(document).ready(function(){
+			pushHistory();
+			function pushHistory(){
+				var state = {
+					'pageName':'A',
+					'page_para':'A'
+				};
+				window.history.replaceState(state,'page 2','#');
+			}
+			console.log( window.history );
+			console.log( window.history.state );
+		});
+	</script>
+</html>

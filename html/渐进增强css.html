@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#content{
+			width:1000px;
+			margin:50px auto;
+			/*background-color: rgb(137,224,160);
+			background-color: rgba(180,246,248,.43);*/
+			min-height: 68px;
+		}
+		/*ul{
+			list-style: none;
+			width:80%;
+			margin:5px 10%;
+			
+		}
+		ul>li{
+			height: 35px;
+			background-color: #F2F2F2;
+			line-height: 35px;
+			padding: 3px;
+		}
+		ul>li:not(:last-child){
+			border-bottom: 1px solid #888;
+		}*/
+		#div1,#div2,#div3,#div4{
+			min-height: 300px;
+			border: 1px solid #aaa;
+		}
+		div:target{
+			border-color: red;
+		}
+		.bd{
+			float: left;
+			width:500px;
+		}
+		.nav{
+			position: fixed;
+			right:50px;
+			top:200px;
+			left:540px;
+		}
+		.nav a{
+			display: block;
+		}
+		#div1 h2,#div2 h2,#div3 h3,#div4 h2{
+		}
+		#div1:target h2,#div2:target h2,#div3:target h2,#div4:target h2{
+			/*border-color: red;*/
+			color:orangered;
+		}
+		#navigator{
+			background-color: #333;
+			list-style: none;
+			color:#fff;
+		}
+		body:not(:target) #navigator li{
+			height: 0;
+			overflow: hidden;
+			transition: height .25s linear;
+			-moz-transition: height .25s linear;	/* Firefox 4 */
+			-webkit-transition: height .25s linear;	/* Safari 和 Chrome */
+			-o-transition: height .25s linear;	/* Opera */
+		}
+		body:not(:target) #navigator:target li{
+			height: 35px;
+			line-height: 35px;
+		}
+		
+	</style>
+	
+	<body>
+		<!--<div id="content">
+			<ul>
+				<li>苹果</li>
+				<li>梨</li>
+				<li>香蕉</li>
+			</ul>
+		</div>-->
+		<header id="navigator">
+			Gradudate & Professional Students
+			<ul>
+				<li>Graduate Programs</li>
+				<li>Ungraduate Programs</li>
+				<li>Admissions</li>
+				<li>About Nichols</li>
+				<li>Cooporate Connections</li>
+			</ul>
+		</header>
+		<div>
+			<div class="bd">
+				<div id="div1" class="panel">
+					<h2>区块1</h2>
+					<div><p>区块1内容</p><p>区块1内容</p><p>区块1内容</p></div>
+				</div>
+				<div id="div2" class="panel">
+					<h2>区块2</h2>
+					<div><p>区块2内容</p><p>区块2内容</p><p>区块2内容</p></div>
+				</div>
+				<div id="div3" class="panel">
+					<h2>区块3</h2>
+					<div><p>区块3内容</p><p>区块3内容</p><p>区块3内容</p></div>
+				</div>
+				<div id="div4" class="panel">
+					<h2>区块4</h2>
+					<div><p>区块4内容</p><p>区块4内容</p><p>区块4内容</p></div>
+				</div>
+			</div>	
+			<div class="nav" class="panel">
+				<a href="#div1">滚动到div1</a>
+				<a href="#div2">滚动到div2</a>
+				<a href="#div3">滚动到div3</a>
+				<a href="#div4">滚动到div4</a>
+				<a href="#navigator">滚动到头部</a>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		<p>这是一段缩进文字，这中间&nbsp;&nbsp;&nbsp;&nbsp;有空白</p>
+		<p>
+			<img src="../images/cbd.jpg" />
+		</p>
+	</body>
+</html>

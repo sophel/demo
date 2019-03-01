@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	body{
+		padding: 0;
+		margin: 0;
+	}	
+	.navbar{
+		height: 70px;
+		min-width: 1280px;
+		display: flex;
+		flex-flow: row nowrap;/*水平不换行*/
+		align-items: center;
+		background-color: #343a40;
+		position: relative;
+	}
+	.change_container{
+		width: 1250px;
+		margin: 0 auto;
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+	}
+	.navbar-nav{
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+	}
+	.navbar-nav li{
+		height: 70px;
+		color:#fff;
+	}
+	.navbar-nav li>a{
+		line-height: 70px;
+		padding-left: 8px;
+		padding-right: 30px;
+		display: inline-block;
+		background-image: url('https://www.yungongchang.com/Common/Images/newHome/nav_up.png');
+		background-repeat: no-repeat;
+	background-position: 80px 30px;
+	}
+	.dropdown-menu{
+		position: absolute;
+		top: 67px;
+		width: 100%;
+		left: 0;
+		background: #000;
+	}
+	.dropdown-menu a{
+		display: inline-block;
+		padding: 10px;
+	}
+	.nav-item>div.dropdown-menu{
+		display: none;
+	}
+	.nav-item.open>div.dropdown-menu{
+		display: block;
+	}
+	
+	</style>
+	<script>
+		window.onload = function(){
+			let triggers = document.querySelectorAll(".navbar-nav>li.nav-item");
+			triggers.forEach( el=>{
+				el.addEventListener('mouseenter',function(){
+					this.classList.add( 'open' );
+				});
+				el.addEventListener('mouseleave',function(){
+					this.classList.remove( 'open' );
+				});
+			} );
+		}
+	</script>
+	<body>
+		<nav class="navbar">
+			<div class="change_container">
+				<a class="navbar-brand">
+					<img src="https://www.yungongchang.com/Common/Images/newHome/logo.png" />
+				</a>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a>关于我们</a>
+						<div class="dropdown-menu">
+							<a>公司介绍</a>
+							<a>主创团队</a>
+							<a>核心技术</a>
+							<a>公司动态</a>
+							<a>强大制造产能</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a>关于我们</a>
+						<div class="dropdown-menu">
+							<a>1</a>
+							<a>2</a>
+							<a>3</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a>关于我们</a>
+						<div class="dropdown-menu">
+							<a>4</a>
+							<a>5</a>
+							<a>6</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a>关于我们</a>
+						<div class="dropdown-menu">
+							<a>7</a>
+							<a>8</a>
+							<a>9</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a>关于我们</a>
+						<div class="dropdown-menu">
+							<a>10</a>
+							<a>11</a>
+							<a>12</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a>关于我们</a>
+						<div class="dropdown-menu">
+							<a>13</a>
+							<a>14</a>
+							<a>15</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+	</body>
+</html>

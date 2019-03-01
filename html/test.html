@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery.min.js" ></script>
+<script>
+	function sayHi()
+	{
+		alert("hello world");
+	}
+	$(document).ready(function(){
+		console.log( "content-height:"+$("#content").height() );
+		console.log( "ul-height:"+$("ul").eq(0).height() );
+		//click可叠加追加事件处理函数，对新生成的dom无效
+//		$("li").click(function(){
+//			alert(this.innerHTML);
+//		});
+		//live,bind,delegate已废除
+		$('li').on('click', function() {
+		  alert("on handler called."); 
+		});
+
+		$("#dom_creater").click(function(){
+		//1.用jquery创建-追加节点demo,可以响应绑定的事件
+		//var result = '<li onclick="sayHi()">new list-item</li>';
+		//$("ul").eq(0).append(result);
+		//2.用纯js创建-追加节点demo,可以响应绑定的事件
+		var my_ul = document.querySelector( "ul" );
+		var new_li = document.createElement( "li" );
+		new_li.innerHTML = "new list-item";
+		//new_li.addEventListener( "click",sayHi );
+		my_ul.appendChild( new_li );
+		});
+	
+	});
+	
+</script>
+	</head>
+	<style>
+		#content
+		{
+			height: 100px;
+			/*overflow: auto;*/
+		}
+		.wrapper
+		{
+			margin: 50px auto;
+		}
+		.wrapper .header{
+			min-height: 50px;
+			background-color: #ddd;
+		}
+		.wrapper .content{
+			min-height: 500px;
+			background-color: #eee;
+		}
+		@media only screen and (min-width: 1000px) and (max-width: 2000px) {
+			.wrapper
+			{
+				width:1000px;
+			}
+		}
+		@media only screen and (max-width: 1000px) {
+			.wrapper
+			{
+				width:96%;
+			}
+		}
+		/*hover时给子元素添加样式*/
+		/*.wrapper:hover .content{
+			background-color: red;
+		}*/
+		/*hover时给兄弟添加样式*/
+		.header:hover +.content{
+			background-color: red;
+		}
+		/*输入框聚焦时，添加样式*/
+		/*input:focus{
+			background-color: lightblue;
+		}*/
+	</style>
+	<body>
+		<!--<div id="content">
+			<ul>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+				<li>list-item</li>
+			</ul>
+			<br />
+			<input value="生成dom" id="dom_creater" type="button"/>
+		</div>-->
+		<div style="background-color: #eee;min-height: 100px;">
+			<div style="background-color: #ccc;height: 30px;width:100px;"></div>
+		</div>
+		<div class="wrapper">
+			<div class="header"></div>
+			<div class="content"></div>
+			<form>
+				姓名：<input type="text"/> 密码：<input type="text"/>
+			</form>
+		</div>
+		这是一段文字
+		<span style='position:relative;margin-right: 20px;'>O<span style='position: absolute;top: -8px;font-size: 10px;'>+0.2</span> <span style='position: absolute;top: 8px;font-size: 10px;'>0</span></span>
+		这是一段文字
+	</body>
+</html>

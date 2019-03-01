@@ -1,0 +1,63 @@
+.material {
+	width: 1120px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+img {
+	position: static;
+}
+
+.big {
+	width: 100%;
+	font-size: 0;
+}
+
+.big img {
+	width: 100%;
+	height: 300px;
+}
+
+.sml img {
+	width: 100px;
+	height: 100px;
+}
+
+.part {
+	float: left;
+	width: 555px;
+	background-color: #e8e8e8;
+}
+
+.part img {
+	margin: 50px 20px 50px 45px;
+	float: left;
+}
+
+p {
+	display: block;
+	float: right;
+	word-spacing: 2px;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+	color: #595757;
+	line-height: 30px;
+	
+	margin-top: 50px;
+	margin-right: 50px;
+	width: 340px;
+}
+
+.top {
+	margin-top: 10px;
+}
+
+.right {
+	margin-right: 10px;
+}
+
+.bottom {
+	margin-bottom: 10px;
+}

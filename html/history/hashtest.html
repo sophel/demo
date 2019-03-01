@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	<style>
+		#sidebar{
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width:280px;
+			background-color: lightgray;
+		}
+		a{
+			display: block;
+			margin-bottom: 20px;
+		}
+		#mainsec{
+			margin-left: 280px;
+			height: 300px;
+		}
+		.blue{
+			background-color: lightblue;
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.green{
+			background-color: lightgreen;
+		}
+	</style>
+	<body>
+		<div id="sidebar">
+			<button id="blue_btn" disabled="disabled">蓝色</button>
+			<button id="yellow_btn">黄色</button>
+			<button id="green_btn">绿色</button>
+		</div>
+		<section id="mainsec" class="blue">
+			<label>姓名：</label><input type="text" id="inputer"/>
+		</section>
+	</body>
+	<script>
+		var isbluevisted = true;
+		var isyellowvisted = false;
+		var isgreenvisted = false;
+		var counter = 1;
+		function display( id,counter ){
+			switch( id ){
+					case 'blue'://蓝色
+					$("#mainsec").removeClass();
+					$("#mainsec").addClass("blue");
+					break;
+					case 'yellow'://黄色
+					$("#mainsec").removeClass();
+					$("#mainsec").addClass("yellow");
+					break;
+					case 'green'://黄色
+					$("#mainsec").removeClass();
+					$("#mainsec").addClass("green");
+					break;
+					default:break;
+					}
+			$("#mainsec").html(counter);
+		}
+		$(document).ready(function(){
+			display('blue',counter);
+			window.history.replaceState({'id':'blue','counter':1},'','');
+			$("#yellow_btn").click(function(e){
+				display('yellow',counter);
+				window.history.pushState({'id':'yellow','counter':1},'','');
+				e.target.setAttribute("disabled","disabled");
+			});
+			$("#green_btn").click(function(e){
+				display('green',counter);
+				window.history.pushState({'id':'green','counter':1},'','');
+				e.target.setAttribute("disabled","disabled");
+			});
+			window.addEventListener('popstate',function(e){
+				console.log( '触发了popstate;' );
+				var state = e.state;
+				state.counter = state.counter+1;
+				window.history.replaceState(state,'','');
+				display( state.id,state.counter );
+			});
+		});
+	</script>
+</html>

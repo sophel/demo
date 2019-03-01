@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--1.body根元素为bfc容器-->
+	<body>
+		
+		<div>1</div>
+		<div>2</div>
+		<!--2.overflow/float触发bfc-->
+		<div style="border: 1px solid #000;overflow: hidden;" class="float-parent">
+    	<div style="width: 100px;height: 100px;background: #eee;float: left;">
+    		this is bfc innerhtml
+    	</div>
+    	<div style="width: 100px;height: 100px;background: #eee;float: left;">
+    		this is bfc innerhtml
+    	</div>
+    	<div style="width: 100px;height: 100px;background: #eee;float: left;">
+    		this is bfc innerhtml
+    	</div>
+		</div>
+		<!--bfc阻止被浮动元素阻挡-->
+    <div style="height: 100px;width: 100px;float: left;background: lightblue">
+    	我是一个左浮动的元素
+    </div>
+    <div style="width: 200px; height: 200px;background: #eee;overflow: hidden;">
+    	我是一个没有设置浮动, 
+    	也没有触发 BFC 元素, width: 200px; height:200px; background: #eee;
+    </div>
+    <!--3.absolute形成bfc-->
+    <div class="abs-parent"> 
+    	<div>123</div>
+    	<div>456</div>
+    </div>
+    <div class="flex-parent">
+    	<div style="width:200px;background:#ccc;line-height: 30px;">flex1</div>
+    	<div style="width:200px;background:#ccc;line-height: 30px;">flex1</div>
+    	<div style="width:200px;background:#ccc;line-height: 30px;">flex1</div>
+    	<div style="width:200px;background:#ccc;line-height: 30px;">flex1</div>
+    	<div style="width:200px;background:#ccc;line-height: 30px;">flex1</div>
+    	<div style="width:200px;background:#ccc;line-height: 30px;">flex1</div>
+    </div>	
+	</body>
+	<style>
+		div{
+			margin:10px;
+		}
+		.float-parent:after{
+			display: block;
+			content: '';
+			clear: both;
+		}
+		.abs-parent{
+			position: absolute;
+			left:0;
+			bottom:0;
+			background:#eee;
+		}
+		.flex-parent{
+			display: flex;
+			height: 50px;
+			margin:0;
+			width:800px;
+			flex-flow: row wrap;
+		}
+	</style>
+</html>

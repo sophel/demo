@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wrapper{
+			text-align: justify;
+			max-width:500px;
+			background-color: lightblue;
+		}
+		p{
+			width: 500px;
+			/*text-align: justify;*/
+			text-align-last: right;
+		}
+		.justify-list{
+			text-align: justify;
+			width:500px;
+			padding: 0;
+			margin: 0;
+			background-color: pink;
+			line-height: 0;
+		}
+		.justify-list li{
+			display: inline-block;
+		}
+		.justify-list li img{
+			vertical-align: text-bottom;
+		}
+		.justify_fix{
+			display:inline-block; 
+			width:128px; 
+			outline: 1px dashed red;
+			vertical-align: top;
+		}
+		.dib-linline{
+			width: 5px;
+			height: 5px;
+			background-color: #000;
+			display: inline-block;
+		}
+	</style>
+	<body>
+		<!--<p>
+			hello,this is Mary. hello,this is Mary. 
+			hello,this is Mary. hello,this is Mary. 
+			hello,this is Mary. hello,this is Mary. 
+		</p>-->
+		<!--<div class="wrapper">
+			<img  src="../images/mm.jpg" class="justify-fix"/>
+			<img  src="../images/mm.jpg" class="justify-fix"/>
+			<img  src="../images/mm.jpg" class="justify-fix"/>
+		</div>-->
+		<ul class="justify-list">
+			<li><img  src="../images/mm.jpg"/></li>
+			<li><img  src="../images/mm.jpg"/></li>
+			<li><img  src="../images/mm.jpg"/></li>
+			<li><img  src="../images/mm.jpg"/></li>
+			<li><img  src="../images/mm.jpg"/></li>
+			<span class="justify_fix"></span>
+			<span class="justify_fix"></span>
+			<!--<span>x-baseline</span>-->
+		</ul>
+		
+		<div style="line-height: 0;background-color: pink;margin-top:80px;">
+			<span class="dib-linline"></span>
+			<span >xyz</span>
+		</div>
+		
+	</body>
+</html>

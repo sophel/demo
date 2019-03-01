@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		a{
+			text-decoration: none;
+			font-size: 2.25em;
+			background-color: #b01c20;
+			border-radius: 8px;
+			color: white;
+			padding: 30px;
+			float: left;
+			background: -moz-linear-gradient(90deg, #b01c20 0%, #f15c60 100%);
+			margin-top: 30px;
+			box-shadow: 5px 5px 5px hsla(0, 0%, 26.6667%, 0.8);
+			text-shadow: 0px 1px black;
+			border: 1px solid #bfbfbf;
+			/*简写属性，在一个属性中书写4个过渡属性*/
+			/*transition: all 1s ease 0s;*/
+			/*针对不同属性，设置不同的过渡效果*/
+			transition-property: border, color, text-shadow;/*设置过渡属性*/
+			transition-duration: 2s, 3s, 8s;/*设置过渡时间*/
+		}
+		a:hover {
+			border: 1px solid #000000;
+			color: #000000;
+			text-shadow: 0px 1px white;
+			/*transform: scale(1.7);*//*缩放*/
+			/*transform: translate(40px,0);*//*平移*/
+			/*transform: rotate(360deg);*//*旋转，火狐必须小于360deg*/
+			/*transform:skew(10deg,0deg);*//*斜切*/
+			}
+		@keyframes warning {
+			0% {
+			text-shadow: 0px 0px 4px #000000;
+			}
+			50% {
+			text-shadow: 0 0 40px #000000;
+			}
+			100% {
+			text-shadow: 0 0 4px #000000;
+			}
+		}
+		.Qcontainer {
+			height: 100%;
+			width: 28%;
+			position: relative;
+			-webkit-perspective: 800;
+			float: left;
+			margin-right: 2%;
+			}
+		.film {
+			width: 100%;
+			height: 15em;
+			-webkit-transform-style: preserve-3d;
+			-webkit-transition: 1s;
+			}
+		.Qcontainer:hover .film {
+			-webkit-transform: rotateY(180deg);
+			}
+		.face {
+			position: absolute;
+			-webkit-backface-visibility: hidden;
+			}
+		.back {
+			width: 66%;
+			height: 127%;
+			-webkit-transform: rotateY(180deg);
+			background: #3b3b3b;
+			background: -webkit-linear-gradient(top,
+			rgba(0,0,0,0.65) 0%,
+			rgba(0,0,0,0) 100%);
+			padding: 15%;
+			}
+		.back h5 {
+			font-size: 4em;
+			color: #f2050b;
+			text-align: center;
+			animation: warning 1.5s infinite ease-in;/*绑定动画并设置时间和循环次数和动画时间曲线*/
+			}
+		/*.3d{color:red;}*//*css的class命名不能以数字开头*/
+    	.three-d-wrapper{
+    		transform: rotateX(180deg);
+    		width:30%;
+    		padding: 10%;
+    		margin: 0 auto;
+    		background:  #1e5799; /* Old browsers */
+			background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */;
+    		transition:transform ease 2s;/*用过渡实现transform*/
+    	}
+    	.three-d-wrapper:hover{
+    		transform: rotateX(180deg);
+			-webkit-transform: rotateX(180deg);	/* Safari 和 Chrome */
+			-moz-transform: rotateX(180deg);	/* Firefox */
+    	}
+    @-webkit-keyframes swing {
+		from {/*在动画中应用transform*/
+			transform: rotate(3deg);
+		}
+		20% {
+			transform: rotate(7deg);
+		}
+		60% {
+			transform: rotate(10deg);
+		}
+		80% {
+			transform: rotate(7deg);
+		}
+		to {
+			transform: rotate(3deg);
+		}
+	}
+	#quiz .unSung a:nth-child(odd) img, #quiz .unSung a:nth-child(even) img{
+		transform: rotate(3deg);
+		animation: swing 0.1s infinite ease-in;
+	}
+	#quiz .overHyped a:nth-child(odd) img,#quiz .overHyped a:nth-child(even) img {
+		transform: rotate(3deg);
+		animation: swing 0.1s infinite 0.2s ease-in;
+	}
+	
+	</style>
+	<body>
+		<!--<section class="Qcontainer">
+			<div class="film">
+				<div class="face front">
+				<img src="../images/midnightRun.jpg" alt="The Goonies" />
+				</div>
+				<div class="face back"><h5>HOT!</h5></div>
+			</div>
+		</section>-->
+		<!--<div class="three-d-wrapper">
+			<h1>HOT!</h1>
+		</div>-->
+	<aside id="quiz">
+		<div role="complementary">
+			<div class="unSung">
+				<h1>Unsung heroes...</h1>
+				<a href="#"><img src="../images/midnightRun.jpg" alt="Midnight Run" /></a>
+				<a href="#"><img src="../images/wyattEarp.jpg" alt="Wyatt Earp" /></a>
+			</div>
+		</div>
+		<div role="complementary">
+			<div class="overHyped">
+				<h1>Overhyped nonsense...</h1>
+				<a href="#"><img src="../images/midnightRun.jpg" alt="Moulin Rouge" /></a>
+				<a href="#"><img src="../images/wyattEarp.jpg" alt="King Kong" /></a>
+			</div>
+		</div>
+	</aside>
+	</body>
+</html>

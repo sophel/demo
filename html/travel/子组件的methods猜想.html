@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		Person.prototype = {
+			printInfo:function(){
+				console.log( 'name: '+this.name+","+"age: "+this.age );
+			}
+		};
+		function Person( _name, _age ){
+			this.name = _name;
+			this.age = _age;
+		}
+		var p1 = new Person( 'msl',29 );
+		var p2 = new Person( 'hly',31 );
+		//闭包相关测试
+		function calculator(){
+			var counter = 0;
+			return function(){
+				return counter++;
+			}
+		}
+		var f1 = calculator();
+		var f2 = calculator();
+		console.log( f1() );
+		console.log( f1() );
+		console.log( f2() );
+		console.log( f1 === f2 );
+	</script>
+</html>

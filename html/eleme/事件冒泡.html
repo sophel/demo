@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+		<title></title>
+	</head>
+	<style>
+		.level1{
+			position: absolute;
+			left:10px;
+			top:10px;
+			width:300px;
+			height:300px;
+			background: lightsalmon;
+		}
+		.level2{
+			position: absolute;
+			left:20px;
+			top:20px;
+			width:200px;
+			height:200px;
+			background: lightcyan;
+		}
+		.level3{
+			position: absolute;
+			left:20px;
+			top:20px;
+			width:100px;
+			height:100px;
+			background: lightgreen;
+		}
+		#content{
+			position: absolute;
+			top:350px;
+			left:0;
+			right:0;
+		}
+	</style>
+	<body>
+		<div class="level1" id="level1">
+			l1
+			<div class="level2" id="level2">
+				l2
+				<div class="level3" id="level3">
+					l3
+				</div>
+			</div>
+		</div>
+		<div id="content" ></div>
+	</body>
+	<script>
+		var level1 = document.getElementById( "level1" );
+		var level2 = document.getElementById( "level2" );
+		var level3 = document.getElementById( "level3" );
+		document.addEventListener( 'touchstart' ,function( e ){
+			e.preventDefault();
+			document.getElementById("content").innerHTML += "document touch start"+"<br>"
+		},{passive:false});
+//		document.addEventListener( 'touchstart' ,function( e ){
+//			e.preventDefault();
+//		},{passive:false});
+//		level1.addEventListener( 'touchstart' ,function( e ){
+//			document.getElementById("content").innerHTML += "level1 touch start"+"<br>"
+//		},{passive:false});
+//		level1.addEventListener( 'touchend' ,function( e ){
+//			document.getElementById("content").innerHTML += "level1 touch end"+"<br>"
+//		},{passive:false});
+//		level1.addEventListener( 'click' ,function( e ){
+//			document.getElementById("content").innerHTML += "level1 clicked"+"<br>"
+//		},{passive:false});
+//		//处理level2
+//		level2.addEventListener( 'touchstart' ,function( e ){
+//			document.getElementById("content").innerHTML += "level2 touch start"+"<br>"
+//			e.stopPropagation();
+//		},{passive:false});
+		level2.addEventListener( 'touchend' ,function( e ){
+			document.getElementById("content").innerHTML += "level2 touch end"+"<br>"
+			e.stopPropagation();	
+			},{passive:false}
+		);
+//		level2.addEventListener( 'click' ,function( e ){
+//			document.getElementById("content").innerHTML += "level2 clicked"+"<br>"
+//			e.stopPropagation();
+//		},{passive:false});
+		
+		
+	</script>
+</html>

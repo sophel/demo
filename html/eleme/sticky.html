@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		.header{
+			position: fixed;
+			height:50px;
+			background: #005BAC;
+			left:0;
+			top:0;
+			width:100%;
+		}
+		.content{
+			height: 1000px;
+			background: #eee;
+		}
+		.sticky-wrapper{
+			width:500px;
+			height:200px;
+			overflow: scroll;
+			margin: 20px auto;
+			position: relative;
+			top:50px;
+		}
+		.sticky-box{
+			top:0;
+			position: -webkit-sticky;
+    	position: sticky;
+    	background: orange;
+    	height: 60px;
+    	margin-bottom: 30px;
+		}
+	</style>
+	<body>
+		<div class="header">
+			
+		</div>
+		<!--<div class="content"> 
+			<p>this is a para.</p>
+			<p>this is a para.</p>
+			<p>this is a para.</p>
+			<p>this is a para.</p>
+			<p>this is a para.</p>
+		</div>-->
+		<div class="sticky-wrapper">
+			<div class="sticky-box">content 1</div>
+			<div class="sticky-box">content 2</div>
+			<div class="sticky-box">content 3</div>
+			<div class="sticky-box">content 4</div>
+			<div class="sticky-box">content 5</div>
+		</div>
+	</body>
+</html>

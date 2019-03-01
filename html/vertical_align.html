@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wrapper{
+			background-color: pink;
+			line-height:50px;
+			width:100px;
+		}
+		.dot{
+			width:5px;
+			height: 5px;
+			display: inline-block;
+			background-color: #000;
+		}
+		img{
+			/*方法一：让vertical-align失效，因其只对行内元素有效*/
+			/*display: block;*/
+			/*方法二：不再让行内元素针对baseline对其，采用bottom,top,middle*/
+			vertical-align: bottom;
+		}
+		span{
+			word-break: break-all;
+		}
+	</style>
+	<body>
+		<div class="wrapper">
+			<div class="dot"></div>
+			<span>Sopehlx</span>
+			<!--<span>Sxpan</span>-->
+		</div>
+	</body>
+</html>

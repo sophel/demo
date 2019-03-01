@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="../js/jquery.min.js" ></script>
+		<link href="../css/mui.min.css" rel="stylesheet"/>
+		<script type="text/javascript" src="../js/mui.min.js" ></script>
+	</head>
+	<style>
+.dragBar
+{
+position:absolute;
+top:9px;
+width:100px;
+height:100px;
+padding:5px 5px 5px 0;
+background-image:url(../images/dragbar.png);
+background-position:0 5px;
+background-repeat:no-repeat;
+z-index: 2;
+background-color:#005bac;
+}
+</style>
+<script type="text/javascript">
+	window.org_deltaX = 0;
+	window.org_deltaY = 0;
+	function dragstart(e)
+	{
+		e = e||event;
+		window.org_deltaX = e.detail.touches[0].clientX-$(e.target).position().left;
+		window.org_deltaY = e.detail.touches[0].clientY-$(e.target).position().top;
+		str = "";
+		for(prop in e.detail.touches[0])
+		{
+			str += prop+"\n";
+		}
+		//alert(str);
+	}
+	function drag(e)
+	{ 
+		e = e||event;
+		e.target.style.left = (e.detail.touches[0].clientX-window.org_deltaX)+"px";
+		e.target.style.top = (e.detail.touches[0].clientY-window.org_deltaY)+"px";
+	}
+	function dragend(e)
+	{
+	}
+	mui.plusReady(function(){
+		mui(".mui-content").on("dragstart",".dragBar",dragstart);
+		mui(".mui-content").on("drag",".dragBar",drag);
+		mui(".mui-content").on("dragend",".dragBar",dragend);
+	});
+</script>
+
+<body id="mybody">
+	<div class="mui-content">
+	    <div class="dragBar" draggable="true" style="left:50px;top:10px" id="my-bar"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.blue{
+			height: 100px;
+			background: lightblue;
+		}
+		.green{
+			height: 100px;
+			background: lightgreen;
+		}
+		#backToTop{
+			position:fixed;
+		    bottom:50px;
+		    right:50px;
+		    width:50px;
+		    height:50px;
+		    overflow: hidden;
+		}
+		#backToTop #go{
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height: 100%;
+			border:none;
+			background: #005BAC;
+			color: white;
+			padding: 0;
+			transition: top 0.6s;
+			-moz-transition: top 0.6s;	/* Firefox 4 */
+			-webkit-transition: top 0.6s;	/* Safari 和 Chrome */
+			-o-transition: top 0.6s;	/* Opera */
+		}
+		html,body{
+			/*scrollTop属性不支持过渡*/
+			transition: scrollTop 2s;
+			-moz-transition: scrollTop 2s;	/* Firefox 4 */
+			-webkit-transition: scrollTop 2s;	/* Safari 和 Chrome */
+			-o-transition: scrollTop 2s;	/* Opera */
+		}		
+	</style>
+	<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	<script>
+		function ScollPostion() {
+		    var t, l, w, h;
+		    if (document.documentElement && document.documentElement.scrollTop) {
+		        //document.documentElement返回文档根节点—<html>
+		        t = document.documentElement.scrollTop;
+		        l = document.documentElement.scrollLeft;
+		        w = document.documentElement.scrollWidth;
+		        h = document.documentElement.scrollHeight;
+		    } else if (document.body) {
+		        t = document.body.scrollTop;
+		        l = document.body.scrollLeft;
+		        w = document.body.scrollWidth;
+		        h = document.body.scrollHeight;
+		    }
+		    return {
+		        top: t,
+		        left: l,
+		        width: w,
+		        height: h
+		    };
+		}
+		function examScroll(coef,backTop){
+			var oScroll = ScollPostion();
+			var pageOffset = oScroll.t;
+			if( pageOffset>coef ){
+					$(backTop).css("top","0px");
+				}
+				else{
+					$(backTop).css("top","50px");
+				}
+		}
+		window.onload = function(){
+			/***
+			 * 添加人：msl
+			 * 添加时间：2018-06-28
+			 * 添加内容：动态生成"backToTop"DOM元素
+			 * ***/
+			$("body").append("<div id='backToTop'><button id='go' >GO!</button></div>");
+			var coef = 50;//定义触发切换事件的滚动偏移量
+			var backTop = document.getElementById("go");
+			
+			backTop.onclick = function(e){
+				//利用jquery的animate动画方法和scrollTop属性
+				//返回顶部（含动效）方法一
+				$('html,body').animate({scrollTop: '0px'}, 600);
+			}
+			//$(window).trigger("scroll");
+			examScroll(coef,backTop);
+			$(window).scroll(function(e){
+				console.log("e.pageY:"+e.originalEvent.pageY);
+				var pageOffset = e.originalEvent.pageY;
+				if( pageOffset>coef ){
+					$(backTop).css("top","0px");
+				}
+				else{
+					$(backTop).css("top","50px");
+				}
+			});
+			$("#user-btn").click(function(){
+				//console.log("body.scrollTop:"+document.body.scrollTop);
+				//console.log( ScollPostion() );
+				//documentElement.scrollTop属性支持读写操作
+				//console.log( document.documentElement );//读
+				//document.documentElement.scrollTop = 0;//写
+				//返回顶部（含动效）方法二
+				
+				if (document.documentElement && document.documentElement.scrollTop) {
+			        document.documentElement.scrollTop = 0;
+		    	} else if (document.body) {
+			        document.body.scrollTop = 0;
+		    	}
+			});
+		}
+	</script>
+	<body>
+		<div class="blue">1</div>
+		<div class="green">2</div>
+		<div class="blue">3</div>
+		<div class="green">4</div>
+		<div class="blue">5</div>
+		<div class="green">6</div>
+		<div class="blue">7</div>
+		<div class="green">8</div>
+		<div class="blue">9</div>
+		<div class="green">10</div>
+		<div class="blue">11</div>
+		<div class="green">12</div>
+		<div class="blue">13</div>
+		<div class="green">14</div>
+		<div class="blue">15</div>
+		<div class="green">16</div>
+		<div class="blue">17</div>
+		<div class="green">18</div>
+		<div class="blue">19</div>
+		<div class="green">20</div>
+		<div class="blue">21</div>
+		<div class="green">22</div>
+		<div class="blue">23</div>
+		<div class="green">24</div>
+		<!--<div id="backToTop">
+			<button id="go" class="hide">GO!</button>
+		</div>-->
+		<div>
+			<button id="user-btn">点此查看</button>
+		</div>
+	</body>
+	
+</html>

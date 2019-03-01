@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../../js/jquery.min.js"></script>
+	<body>
+		C
+		<a href="historyA.html">打开A页面</a>
+	</body>
+	<script>
+		window.onload = function(){
+			pushHistory();
+			function pushHistory(){
+				var state = {
+					'pageName':'C',
+					'page_para':'C'
+				};
+				window.history.replaceState(state,'page 2','#');
+			}
+			console.log( window.history );
+			console.log( window.history.state );
+		}
+	</script>
+</html>

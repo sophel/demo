@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="observedom"></div>
+	</body>
+	<script>
+		function Managedom(){
+			this.tabs = document.getElementsByClassName("tab");
+			this.contents = document.getElementsByClassName("content");
+		}
+		function switchContent(){}
+		Managedom.prototype = {
+			toggleContent:function(index){
+				for( var i=0;i<this.contents.length;i++ ){
+					if( index===i ){
+						this.contents[i].style.display = 'block';
+					}
+					else{
+						this.contents[i].style.display = 'none';
+					}
+				}
+			},
+			switchContent:function(tabname){
+				var tabindex = tabname.indexOf("tab");
+				var num = tabname.substr(tabindex);
+				console.log( num+'abc' );
+			},
+			init:function(){
+				for( var i=0;i<this.tabs.length;i++ ){
+					this.tabs[i].addEventListener('click',function(e){
+						tagid = e.target.id;
+						
+					});
+				}
+			}
+		};
+		var mng = new Managedom();
+		mng.switchContent("tab1");
+	</script>
+</html>

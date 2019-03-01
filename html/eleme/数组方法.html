@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		var arr= ['ant','elephant','monkey'];
+		//sort会改变原数组
+		var arr2 =  arr.sort( function(a,b){
+			return a-b;
+		} );
+		console.log( arr2 );
+		console.log( arr );
+//		var filter = arr.filter( function( el ){
+//			if( el === "elephant" )
+//				return true;
+//			else
+//				return false;
+//		} );
+//		console.log( filter );
+	</script>
+</html>

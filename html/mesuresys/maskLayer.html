@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=2.0,width=device-width;"/>
+	</head>
+	<style>
+		html,body{
+			padding: 0;
+			margin: 0;
+		}
+		.blue{
+			height: 100px;
+			background: lightblue;
+		}
+		.green{
+			height: 100px;
+			background: lightgreen;
+		}
+		.wrapper{
+			position: relative;
+		}
+		#mask{
+			position: fixed;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.3);
+			z-index: 100;
+			display: none;
+		}
+		#popover{
+			position: absolute;
+			left: 100px;
+			top:50px;
+			right:50px;
+			min-height: 300px;
+			background-color: #fff;
+			z-index: 200;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	<body>
+		<div id="popover">
+			<table>
+				<tr>
+					<td><input type="button" onclick="showInfo()" value="btn1"/></td>
+					<td><input type="button" onclick="showInfo()" value="btn2"/></td>
+				</tr>
+				<tr>
+					<td><input type="button" onclick="showInfo()" value="btn3"/></td>
+					<td><input type="button" onclick="showInfo()" value="btn4"/></td>
+				</tr>
+			</table>
+		</div>
+		<div id="mask" style="display: none;">
+		</div>
+		<div class="wrapper">
+			<button id="openMask">遮罩层</button>
+		<div class="blue">1</div>
+		<div class="green">2</div>
+		<div class="blue">3</div>
+		<div class="green">4</div>
+		<div class="blue">5</div>
+		<div class="green">6</div>
+		<div class="blue">7</div>
+		<div class="green">8</div>
+		<div class="blue">9</div>
+		<div class="green">10</div>
+		<div class="blue">11</div>
+		<div class="green">12</div>
+		<div class="blue">13</div>
+		<div class="green">14</div>
+		<div class="blue">15</div>
+		<div class="green">16</div>
+		<div class="blue">17</div>
+		<div class="green">18</div>
+		<div class="blue">19</div>
+		<div class="green">20</div>
+		<div class="blue">21</div>
+		<div class="green">22</div>
+		<div class="blue">23</div>
+		<div class="green">24</div>
+		</div>
+	</body>
+	<script>
+		function showInfo(){
+			alert('ok');
+		}
+		$(document).ready(function(){
+			var mask = document.getElementById("mask");
+			$("#openMask").click(function(){
+				$("#mask").css("display","block");
+				$("#popover").css("display","block");
+				//取消html和body的滚动模式
+				$("html,body").css("overflow","hidden");
+			});
+			
+			$(mask).click(function(){
+				$(this).css("display","none");
+				$("html,body").css("overflow","auto");
+			});
+			mask.addEventListener('touchmove',function(e){
+				e.stopPropagation();
+				e.preventDefault();
+			});
+			mask.addEventListener('click',function(e){
+//				$(mask).css("display","none");
+//				$("#popover").css("display","none");
+				alert("this is click event");
+			});
+			mask.addEventListener('touchstart',function(e){
+				alert("this is touchstart event");
+				e.stopPropagation();
+				e.preventDefault();
+			});
+			mask.addEventListener('touchend',function(e){
+				alert("this is touchend event");
+				e.stopPropagation();
+				e.preventDefault();
+			});
+			
+		});
+	</script>
+</html>

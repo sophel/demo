@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+<script type="text/javascript">
+/*嵌套函数*/
+//function squareroot(a,b)
+//{
+//	function square(x)
+//	{
+//		return x*x;
+//	}
+//	return Math.sqrt( square(a)+square(b) );
+//}
+//console.log( squareroot(3,4) );
+//对象方法的调用
+//var cal = 
+//{
+//	op1:1,
+//	op2:2,
+//	add:function(){ return this.op1+this.op2; },
+//	sub:function(x1,x2){ return x1/x2 },
+//	show:function(){ alert( "操作数枚举：（"+this.op1+","+this.op2+")" );  return this; }
+//};
+////console.log( cal.add() );//调用方式1
+////console.log( cal["add"]());//调用方式2
+////console.log( cal["sub"]( 4,2 ));//调用方式
+////方法的链式调用：没有返回值的方法，最好返回this,方便对象方法的链式调用
+//console.log( cal.show().add() );//链式调用
+//this关键字
+//var o = 
+//{
+//	m:function()
+//	{
+//		var self = this;
+//		console.log( self === o );
+//		f();
+//		function f()
+//		{
+//			console.log( this === o );//被当做函数调用，this指向全局window或者undefined
+//			console.log( self === o );//函数变量的作用于可以到达匿名函数里面
+//		}
+//	}
+//};
+//o.m();//实际调用时，this的指向才被确定
+////构造函数的调用
+//function F(x,y)
+//{ this.x = x;
+//	this.y = y ;
+//	//return {z:3};//如果返回了指定的对象，那么调用表达式的值就是这个对象
+//	//return;//直接return,那么忽略undefined,表达式的值就new产生的新对象
+//	//return 100;//直接返回原始值，那么忽略该值,表达式的值就new产生的新对象
+//}
+//var f = new F(1,2);
+//console.log( f );
+//函数的实参和形参
+////可选的形参
+//function getPropArray(o,a/*可选形参放在最后*/)
+//{
+//	//if( !a ) a = new Array();
+//	a = a || new Array();
+//	for( var prop in o )
+//	{
+//		a.push( prop );
+//	}
+//	return a;
+//}
+//o = { x:1,y:2,z:3 };
+//console.log( getPropArray(o) );
+//可变的参数列表：参数对象arguments
+//作用:让函数可以操作任意数量的实参
+//function max(x1,x2,x3)
+//{
+//	console.log( arguments );//arguments是一个类数组对象
+//	//var x = Number.NEGATIVE_INFINITY;//负无穷
+//	var x = arguments[0];
+//	for( var i=1;i<arguments.length;i++ )
+//	{
+//		if( arguments[i]>x ) x = arguments[i];
+//	}
+//	return x;
+//}
+//console.log( max(1,2) );
+//console.log( max(1,2,3,4,5) );
+//function f(x)
+//{
+//	arguments[0] = null;
+//	console.log( x );
+//}
+//f( new Array(1,2) );
+////callee:用来指向当前正在执行的函数，多用于递归
+//var fac = function(x)
+//{
+//	if( x<=1 ) return x;
+//	return x*arguments.callee(x-1);
+//}
+//function isArraylike( o )
+//{
+//	if( o && typeof(o)==="object" &&//是对象
+//	   isFinite(o.length) &&//length属性是有限数
+//	   o.length === Math.floor(o.length) &&//length是整数
+//	   o.length<4294967296)//小于2的32次方
+//	return true;
+//	else return false;
+//}
+//console.log( isFinite(1/0) );//不是有限数
+//用一个对象来维护操作方法
+//var operators = 
+//{
+//	add:function(x1,x2){ return x1+x2; },
+//	substract:function(x1,x2){ return x1-x2; },
+//	multiply:function(x1,x2){ return x1*x2; },
+//	divide:function(x1,x2){return x1/x2;}
+//};
+//function operate(operator,op1,op2)
+//{
+//	if( typeof(operators[operator]) !== "function" )
+//	{
+//		throw new Error("unknown operator");//抛出一个异常对象
+//		//throw "unknown operator";
+//	}
+//	else
+//	{
+//		return operators[operator](op1,op2);
+//	}
+//}
+//try
+//{
+//	sum = operate("add1s","hello,","world");
+//	console.log( sum );
+//}
+//catch(ex)
+//{
+//	console.log( ex.message );
+//}
+//自定义函数属性
+//uniqueInteger.counter = 0;
+//function uniqueInteger()
+//{
+//	return uniqueInteger.counter++;
+//}
+//console.log( uniqueInteger() );
+//function factorial( n )//带缓存机制的阶乘算法
+//{
+//	if( n && n>0 && n===Math.floor(n) && isFinite(n) )
+//	{
+//		if( !(n in  factorial) )
+//		{
+//			console.log("经过了计算，因为没有缓存属性");
+//			factorial[n] = n*factorial(n-1);
+//		}
+//		else
+//		{
+//			console.log("未经过计算，因为缓存了属性");
+//		}
+//		return factorial[n];
+//	}
+//	else
+//	{
+//		return NaN;
+//	}
+//}
+//factorial[1] = 1;
+//console.log( factorial(5) );
+//闭包
+//var scope = "global scope";
+//function checkscope()
+//{
+//	var scope = "local scope";
+//	function f(){ return  scope; }
+//	return f;//返回一个函数引用
+//}
+//var f1 = checkscope();//f1也指向f
+//console.log( f1() );
+//function uniqueInteger()
+//{
+//	var x = 1;
+//	function f()//定义了嵌套函数
+//	{
+//		return x++;
+//	}
+//	return f;//将嵌套函数的引用返回并保存至某处（这两个条件缺一不可）
+//}
+//var int1 = uniqueInteger();//作用域1
+//var int2 = uniqueInteger();//作用域2：每调用一次外部函数，都创建一个新的作用域链，该作用域链指向一个变量保存对象
+//console.log( int1() );
+//console.log( int1() );
+//console.log( int1() );
+//console.log( int2() );
+//console.log( int2() );
+//console.log( int2() );
+//var getInteger =  (function ()//将引用赋值给getInteger变量
+//{
+//	var x = 1;
+//	return function()//返回一个函数引用
+//	{
+//		return x++;
+//	};
+//}());
+//console.log( getInteger() );
+//console.log( getInteger() );
+//console.log( getInteger() );
+
+//console.log( getInteger() );
+//var myFunc = uniqueInteger();//存在一个外部引用指向该嵌套函数，那么其作用域不会被删除
+//console.log( myFunc() );
+//console.log( myFunc() );
+//console.log( myFunc() );
+//console.log( myFunc() );
+//console.log( myFunc() );
+//console.log( uniqueInteger()() );//未保存，没有外部引用指向该匿名函数，则该嵌套函数的作用域（变量保存对象）被删除
+//console.log( uniqueInteger()() );
+//console.log( uniqueInteger()() );
+//console.log( uniqueInteger()() );
+//console.log( uniqueInteger()() );
+//function uniqueInteger()
+//{
+//	var n = 0;
+//	function f()//嵌套函数在外部函数每次被调用时都重新被创建
+//	{
+//		return n++;
+//	}
+//	return f;
+//}
+////var f1 = uniqueInteger;
+////var f2 = uniqueInteger;
+////console.log( f1 === f2 );//指向同一函数的引用相同
+//var f1 = uniqueInteger();//两次调用外部函数创建的嵌套函数引用并不一样，和作用域链一致（同一函数引用，其作用域链应该不一致）
+//var f2 = uniqueInteger();
+//console.log( f1 === f2 );//false
+//function constNum(v)
+//{
+//	return function(){ return v; };
+//}
+//var funcs = [];
+//for( var i=0;i<10;i++ )
+//{
+//	funcs[i] = constNum(i);//给每个闭包初始化不同的私有变量
+//}
+//for(i=0;i<10;i++)
+//{
+//	console.log( funcs[i]() );
+//}
+//this.name = "msl";
+//function getName()
+//{
+//	//嵌套函数无法使用外部函数的arguments对象，除非保存一下
+//	var args = arguments;
+//	console.log( args.length );
+//	return function(gratewords){ 
+//		console.log( args.length );
+//		return this.name+","+gratewords; };
+//}
+//console.log( getName()('你好') );
+//function checkArgs(args)
+//{
+//	var expected = args.callee.length;//实参的函数引用的预期形参个数
+//	var actual = args.length;
+//	if( expected===actual )
+//	{
+//		return true;
+//	}
+//	else
+//	{
+//		throw new Error("Expected "+expected+" args,autual got "+actual);
+//	}
+//}
+//function f(x,y,z)
+//{
+//	checkArgs(arguments);
+//	return x*y*z;
+//}
+//try
+//{
+//	console.log( f(1,2,3) );
+//	console.log( f(2,3,4) );
+//	console.log( f(1,1,3,4) );
+//}
+//catch(ex)
+//{
+//	alert( ex.message );
+//}
+//bind方法
+//function add()
+//{
+//	if( this.x && this.y )
+//	{
+//		return this.x+this.y;
+//	}
+//	else
+//	throw new Error("x or y undefined");
+//}
+//var o = { x:1,y:2 };
+//var f = add.bind(o);//将函数绑定至对象上：返回一个新函数，该函数将作为对象的方法进行调用
+//console.log( f() );
+////bind的实现
+//function f()
+//{
+//	console.log("coordination is :("+this.x+","+this.y+")");
+//}
+//var o = {x:0,y:0};
+//f.call( o );//已经是执行了，bind应该返回的是函数引用
+//function f(x,y)
+//{		
+//	var args = arguments;
+//	console.log( args.length );
+//	return function()
+//	{
+//		console.log( args.length );//无法使用外部函数的arguments对象,要用全局量来保存
+//	}
+//}
+//f(1,2)();//2,0
+////bind的模拟实现
+//function bind(o,f)
+//{
+//	if( f.bind )return f.bind(o);
+//	else
+//	{
+//		return function(){ f.apply(o,arguments) };//实际运行的时候才传入实参
+//	}
+//}
+//function f(y){ return this.x + y; }
+//var o = {x:1};
+//var f1 = bind(o,f);
+//console.log( f1(5) );
+//bind的实参将会绑定至this?
+//function f(x,y,z){ console.log("props:"+x+","+y+","+z); }
+//var f1 = f.bind(null,1,2);//1→x,2→y
+//f1(3);//3→z
+////if( !Function.prototype.bind )
+////{
+//	Function.prototype.bind  = function(o/*,args*/)
+//	{
+//		var self = this;//函数本身
+//		var boundArgs = arguments;//外部实参
+//		return function()
+//		{
+//			var args = [],i;
+//			for( i=0;i<boundArgs.length;i++ ) 
+//			{
+//				if( boundArgs[i] === o )//对象本身不能作为参数压入到参数数组
+//					continue;
+//				else
+//					args.push( boundArgs[i] );
+//			}
+//			for( i=0;i<arguments.length;i++ ) args.push( arguments[i] );
+//			return self.apply( o, args);
+//		};
+//	}
+////}
+//function f(x,y)
+//{
+//	return(x+y+this.z);
+//}
+//var o = {z:3};
+//var f1 = f.bind( o,1 );
+//console.log( f1(2) );
+//var n = 10;
+//function getInteger()
+//{
+//	var n = 0;
+//	return function()
+//	{
+//		return n++;
+//	}
+//}
+//var f = getInteger();
+//console.log( f() );
+//console.log( f() );
+//console.log( f() );
+//Function构造函数
+//var scope = "global scope";
+//function construction()
+//{
+//	var scope = "local scope";
+//	//return function(){ return scope };
+//	return  new Function("return scope");//new Function创建的函数总是在顶层执行
+//}
+//var f = construction(); 
+//console.log( f() );
+//var data =  [1,1,3,5,5];
+//console.log( data.reduce(function(x,y){ return x+y; }) );//传入化简函数
+//console.log( data.reduce(function(x,y){ return x*y; }) );//传入化简函数
+//函数式编程
+//var sum = function(x,y){ return x+y; };
+//var square = function(x){ return x*x; };
+//var data = [1,1,3,5,5,1];
+////求平均值
+//var avrg = data.reduce( sum )/data.length;
+//var stddev = Math.sqrt( data.map( function(x){ return x-avrg } ).map(square).reduce(sum)/data.length );
+//console.log( stddev );
+//var name = 'msl';
+//(function( obj ){ console.log(obj.name) }(this));
+//var f1 = function(x,y){this.x = x;this.y = y;};
+//var f2 = function(z){ this.z = z };
+//var  o = {};
+//f1.prototype = o;
+//f2.prototype = o;
+//var o1 = new f1(1,2);
+//var o2 = new f2(3);
+//console.log( o1 instanceof f2 );
+//console.log( o2 instanceof f1 );
+//console.log( o1 );
+//console.log( o2 );
+//var F = function(){};//每一个任意函数，都可以当做是构造函数
+//var f1 = new F();
+//console.log( f1.constructor );
+////同时，没一个任意函数都是一个特殊对象，通过 new Function构造函数来创建
+//console.log( F.constructor  );
+
+//Function构造函数里的this应该指向被创建的function对象
+
+Function.prototype.exectSomeObj = function( o )
+{
+	var self = this;//Function里的this指向的是其实例化的function对象
+	self.call( o );
+}; 
+var F = function(obj)
+{
+	for( prop in obj )
+	{
+		console.log( prop +" : "+obj[prop] );
+	}
+};//每一个任意函数，都可以当做是构造函数
+//F.exectSomeObj( {x:1,y:2,z:3} );
+console.log( F.exectSomeObj.toString() );
+F( {x:1,y:2,z:3} );
+</script> 
+	<body>
+		<select name="cars" style="width:100px;">
+			<option value="1" selected="selected">1</option> 
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="flex-container">
+			<div class="flex-item" >1</div>
+			<div class="flex-item" >2</div>
+			<div class="flex-item" >3</div>
+			<div class="flex-item" >4</div>
+			<div class="flex-item" >5</div>
+			<div class="flex-item" >6</div>
+			<div class="flex-item" >7</div>
+			<div class="flex-item" >8</div>
+		</div>
+		<div style="background: #eee;">test</div>
+		<div class="header">
+			<div class="header-left">left</div>
+			<div class="header-content"></div>
+			<div class="header-right"></div>
+		</div>
+		<div class="recommend">
+			<div class="left">
+				<img src="../../images/card.jpg" />
+			</div>
+			<div class="right">
+				<p>title</p>
+				<p>this is context.</p>
+			</div>
+		</div>
+	</body>
+	<style>
+		html{
+			font-size: 50px;
+		}
+		body{
+			font-size: .28rem;
+		}
+		.flex-container{
+			width:500px;
+			margin:50px auto;
+			height: 300px;
+			display: flex;
+			/**/
+			/*flex-direction:column;*/
+			/*flex-direction: row;*/
+			/*flex-wrap: nowrap;*/
+			/*flex-wrap: wrap;*/
+			/*flex-wrap: wrap-reverse;*/
+			flex-flow:row wrap;
+			justify-content: space-around;
+			align-items:stretch;
+		}
+		.flex-container .flex-item{
+			/*flex: 1;*/
+			width:100px;
+			border:1px solid #ddd;
+			box-sizing: border-box;
+			flex:auto;
+		}
+		.header{
+			display: flex;
+			height:1rem;
+			background: lightseagreen;
+			color: #fff;
+		}
+		.header .header-left,.header .header-right{
+			width:1.2rem;
+			line-height:1rem;
+			padding:0 .2rem;
+			text-align: center;
+		}
+		.header-content
+		{
+			height: 1rem;
+			border:1px solid #ddd;
+			box-sizing: border-box;
+			flex:1;
+		}
+		.recommend{
+			/*display: flex;*/
+		}
+		/*.left{
+			background: #ddd;
+		}
+		.left img{
+			width:2rem;
+			height: 2rem;
+		}
+		.right{
+			flex:1
+		}*/
+		/*用float实现*/
+		.left{
+			float:left;
+		}
+		.left img{
+			width:2rem;
+			height:2rem;
+		}
+		.right{
+			overflow: hidden;
+		}
+	</style>
+</html>

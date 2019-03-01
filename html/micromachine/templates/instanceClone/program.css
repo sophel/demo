@@ -1,0 +1,137 @@
+body,html{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333366;
+	background-color: #f3f3f3;
+}
+ul,p{
+	padding: 0;
+	margin: 0;
+}
+#wrapper{
+	min-width: 1052px;
+}
+#header{
+	width:1000px;
+	margin:auto;
+	margin-top: 26px;
+	height: 166px;
+	margin-bottom: -1px;
+}
+#topmenu{
+	overflow: auto;
+	width: 1000px;
+	margin: auto;
+	font-size: 1em;
+	background-color: #000000;
+} 
+#topmenu ul{
+	padding:14px 0;
+	list-style: none;
+	margin: 0;
+	float: left;
+}
+#topmenu ul li{
+	float: left;
+	border-left: 1px solid #e940b9;
+}
+#topmenu ul li:first-child{
+		border-left: 0 solid #000;
+}
+#topmenu a{
+	padding: 0 5px;
+	color: #fff;
+	margin:0px 5px 1px 5px;
+	text-decoration: none;
+	display: block;
+}
+#content-menu_wrap{
+	width:1000px;
+	margin: auto;
+}
+#container-1columns1{
+	width: 100%;
+	float:left;
+	background: #fff;
+}
+#content-1column{
+	float: left;
+	width:920px;
+	margin: 0 40px 0 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+ul.actions{
+	list-style-type: none;
+	line-height: 1.6em;
+	text-align: right;
+	color: #587BC5;
+	margin-top: -6px;
+	margin-bottom: -2px;
+	font-size: 16px;
+}
+ul.actions li:first-child{
+	font-size: 12px;
+}
+/***
+ * 用unicode字体库显示字符，需要给谁前面加图标，就给谁的伪类写代码，选择器不能错
+ * ***/
+ul.actions a::before{
+	font-family: "Font Awesome 5 Free"; 
+	font-weight: 400; 
+	content: "\f0e0";
+}
+h1{
+	font-weight: 400;
+	line-height: 1.1em;
+	color: #e940b9;
+	font-size: 30px;
+	margin-bottom: 12px;
+	margin-top:0;
+}
+p{
+	font-size: 16px;
+	line-height: 1.6em;
+	margin:2px 0 12px 0;
+}
+a {
+    color: #023c56;
+    text-decoration: underline;
+}
+h2{
+	font-size: 22px;
+	line-height: 1.1em;
+	border-left: 10px solid #e940b9;
+	padding-left: 15px;
+	margin-top: 35px;
+	margin-bottom: 12px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #333333;
+	font-weight: normal;
+}
+table{
+	border-collapse: collapse;
+}
+td{
+	border: solid 1px #c0c0c0;
+	vertical-align: middle;
+	padding: 3px 5px;
+	font-size: 16px;
+	line-height: 1.6em;
+}
+h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.1em;
+    color: #333333;
+    border-left: 5px solid #e940b9;
+    padding-left: 10px;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 6px;
+}

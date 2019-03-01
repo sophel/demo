@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		function printProps(/*,args*/){
+		console.log( arguments );
+		for( prop in this ){
+			console.log( prop+"："+this[prop] );
+		}
+	}
+	var o = {name:'test',age:28};
+	//call的本质就是将函数作为临时属性绑定在对象上，使用完毕后再delete掉
+	//printProps.call( o );
+	Function.prototype.myBind = function(o /*,args*/){
+		var self = this;
+		var boundArgs = arguments;
+		//返回闭包指针，则闭包的作用域（o和其他arguments）将被保存
+		return function(){
+			var Args = [];
+			//除去第一个对象形参之外的其他参数
+			for( i=1;i<boundArgs.length;i++ ){
+				Args.push( boundArgs[i] );
+			}
+			for( i=0;i<arguments.length;i++ ){
+				Args.push( arguments[i] );
+			}
+			//apply接受数组参数形式
+			//切记要把执行结果返回，否则，如果self有返回值，也无法将结果返回了
+			return self.apply( o, Args);
+		}
+	}
+	var func = printProps.myBind(o,1,2,3);
+	func(4,5,6);
+	func('test1','test2','test3');
+	</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="../js/jquery.min.js" ></script>
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<script type="text/javascript" src="../js/mui.js" ></script>
+		<title>test1</title>
+	</head>
+	<style>
+	#header
+	{
+		height: 40px;
+		background-color: #ccc;
+	}
+	#content
+	{
+		position: absolute;
+		width:100%;
+		top:40px;
+		bottom: 50px;
+		background-color: #ddd;
+	}
+	.new-dom
+	{
+		height: 40px;
+		margin:5px 0;
+		border:1px solid #555;
+	}
+	</style>
+	<script>
+//	mui.ready(function(){
+//		mui("body").on('tap','.new-dom',function(){
+//			alert("hi");
+//		});
+//	});
+	$(document).ready(function(){
+		// 清除两边的空格 
+//		String.prototype.trim = function() { 
+//		  return this.replace(/(^\s*)|(\s*$)/g, ''); 
+//		}; 
+		var a = "  hello world  !   ";
+		console.log( a.length );
+		a = a.trim();
+		console.log( a.length );
+		$(".new-dom").click(function(){
+			alert("hi");
+		});
+		$("#adder").click(function(){
+			var new_dom = document.createElement("div");
+			new_dom.innerHTML = "new-dom";
+			new_dom.classList.add("new-dom");
+			document.getElementById("content").appendChild(new_dom);
+		});
+	});
+	</script>
+	<body>
+		<div id="header">
+			<button id="adder">添加</button>
+		</div>
+		<div id="content">
+			<div class="new-dom">old-dom</div>	
+			<a href="http://blog.csdn.net/sunhengzhe/article/details/46844137">点此访问</a>
+		</div>
+		
+	</body>
+</html>

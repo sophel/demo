@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.header{
+			height: 45px;
+			background-color: #00BFFF;
+		}
+		.status-hinter{
+			position: fixed;
+			right:0px;
+			top:0px;
+			width:148px;
+			height: 88px;
+			background-image: url(../images/hinter.png);
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			opacity: 0.5;
+		}
+		.content{
+			background-color: #eee;
+		}
+		.content p{
+			padding:300px 0;
+			margin:0;
+		}
+		.stamp-refer{
+			position: relative;
+		}
+		.stamp-refer .stamp-entity{
+			/*float:right;
+			top:-30px;*/
+			position: absolute;
+			top:-30px;
+			right:0;
+			width:100px;
+			height: 60px;
+			background-image: url(../images/hinter.png);
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	.wrapper{
+		background-color: #20B2AA;
+		padding: 0 100px;
+	}
+	.wrapper span{
+		vertical-align: bottom;
+	}
+	.wrapper img{
+		vertical-align: bottom;
+	}
+	.wrapper p{
+		display: inline;
+		vertical-align: bottom;
+	}
+	.parent-box{
+		height: 60px;
+		background-color: #2AC845;
+	}
+	.parent-box>div{
+		/*vertical-align: top;*/
+	}
+	.parent-box .sub-box1{
+		display: inline-block;
+		height: 30px;
+		width:40px;
+		background-color: #4CD964;
+	}
+	.parent-box .sub-box2{
+		display: inline-block;
+		height: 40px;
+		width:50px;
+		background-color: #008000;
+	}
+	.parent-box .sub-box3{
+		display: inline-block;
+		height: 50px;
+		width:60px;
+		background-color: #5CB811;
+	}
+	</style>
+	<body>
+		<!--absolue定位效果 测试-->
+		<!--<div class="header">
+			<span>this is header area.</span>
+		</div>
+		<div class="stamp-refer">
+			<div class="stamp-entity"></div>
+		</div>
+		<div class="content">
+			<p>this is a paragraph.</p>
+			<p>this is a paragraph.</p>
+			<p>this is a paragraph.</p>
+		</div>
+		<div class="stamp-refer">
+			<div class="stamp-entity"></div>
+		</div>-->
+		<!--vertical-align测试-->
+		<div class="wrapper">
+			<span>these are some words.</span>
+			<img src="../images/hinter.png" />
+			<p>this is a para.</p>
+		</div>
+		
+		<div class="parent-box">
+			<div class="sub-box1"></div>
+			<div class="sub-box2"></div>
+			<!--<div class="sub-box3"></div>-->
+			<span>I'm a span element.</span>
+		</div>
+	</body>
+</html>

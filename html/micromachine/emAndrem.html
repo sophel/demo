@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width" />
+	</head>
+	<style>
+		html{
+			font-size: 14px;
+		}
+		.stand{
+			font-size: inherit;
+			/*rem是相对html根元素的字体大小*/
+			/*em是相对当前元素的字体大小*/
+			padding: 1rem 1em;
+			min-height: 50px;
+			background: lightgoldenrodyellow;
+		}
+		@media only screen and (max-width: 768px) {
+			.stand{
+			background: lightgreen;
+		}
+		}
+	</style>
+	<body>
+		<div class="stand"></div>
+	</body>
+	<script>
+		alert('ok');
+		var dom = document.querySelector( ".stand" );
+		var oStyle =dom.currentStyle?dom.currentStyle:window.getComputedStyle(dom,null);
+		console.log( oStyle.fontSize );
+		console.log( oStyle.width );
+	</script>
+</html>

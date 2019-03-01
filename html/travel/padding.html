@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.parent{
+			width:300px;
+		}
+		.wrapper{
+			/*overflow: hidden;*/
+			padding-bottom: 26.67%;
+			background: #ccc;
+			height: 0;
+		}
+		.wrapper img{
+			width:100%
+		}
+		.gallery{
+			width:400px;
+		}
+		.gallery-item{
+			width:50%;
+			padding-top:50%;
+			float: left;
+			height: 0;
+			overflow: hidden;
+		}
+		.gallery-item:nth-child(even){
+			background: lightblue;
+		}
+		.gallery-item:nth-child(odd){
+			background: lightsalmon;
+		}
+		.gallery-item img{
+			width:100%;
+		}
+	</style>
+	<body>
+		<div class="parent">
+			<div class="wrapper">
+				<img src="http://img1.qunarzz.com/piao/fusion/1809/31/da037478f37cf202.jpg_750x200_a02cf862.jpg"/>
+			</div>
+			<div class="test">test</div>
+		</div>
+		<!--<div class='gallery'>
+			<div class="gallery-item">
+				<img src="../../images/card.jpg"/>
+			</div>
+			<div class="gallery-item"></div>
+			<div class="gallery-item"></div>
+			<div class="gallery-item"></div>
+			<div class="gallery-item"></div>
+			<div class="gallery-item"></div>
+		</div>-->
+		
+	</body>
+	<script>
+		var wrapper = document.querySelector( '.wrapper' );
+		console.log( "height:"+wrapper.style.height );
+		console.log( "scrollheight:"+wrapper.scrollHeight );
+	</script>
+</html>

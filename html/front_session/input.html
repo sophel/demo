@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+	<body>
+		<div>
+			<label>姓名：</label><input type="text" id="myname"/>
+			<button id="submit_btn">提交</button>
+		</div>
+		<script>
+			$(function(){
+				alert( '刷新了' );
+				console.log( window.history.state );
+				$("#submit_btn").click(function(){
+					window.location.href = "output.html";
+					window.history.replaceState({"name":$("#myname").val()},'','');
+				});
+			});
+		</script>
+	</body>
+</html>

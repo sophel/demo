@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wrapper{
+			height:1500px;
+			background: lightsalmon;
+		}
+		.fixed{
+			position: fixed;
+			right:0;
+			top:300px;
+			
+		}
+	</style>
+	<body>
+		<div class="wrapper">
+			
+		</div>
+		<div class="fixed">
+			<input type="text" id="distance" />
+			<button onclick="go()">GO！</button>
+		</div>
+	</body>
+	<script>
+		function	getPageScroll(){
+		  var xScroll, yScroll;
+		  if (document.documentElement && document.documentElement.scrollTop) { // Explorer 6 Strict
+		    yScroll = document.documentElement.scrollTop;
+		    xScroll = document.documentElement.scrollLeft;
+		  } else if (document.body) {// all other Explorers
+		    yScroll = document.body.scrollTop;
+		    xScroll = document.body.scrollLeft;  
+		  }
+		  return {left:xScroll,top:yScroll};
+		}
+		function go(){
+			var distance  = document.getElementById("distance").value;
+			console.log( "滚动目标（Y）:"+distance );
+			window.scrollTo( 0, distance);
+			console.log( "滚动后的位置（Y）:"+getPageScroll().top );
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>linear-gradient()_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+<style>
+div {
+	width: 200px;
+	height: 100px;
+	margin-top: 10px;
+	border: 1px solid #ddd;
+}
+.test {
+	background: linear-gradient(#fff, #333);
+}
+.test2 {
+	background: linear-gradient(#000, #f00 50%, #090);
+}
+.test3 {
+	background: linear-gradient(0deg, #000 20%, #f00 50%, #090 80%);
+}
+.test4 {
+	background: linear-gradient(45deg, #000, #f00 50%, #090);
+}
+.test5 {
+	background: linear-gradient(to top right, #000, #f00 50%, #090);
+}
+.test6{
+	/*background-color: #f90;*/
+	background-size: 50px 50px;
+	background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+background-image: -o-linear-gradient(0deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+/*background-image: linear-gradient(90deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);*/
+/*para1:定义了渐变的方向
+  para2~paran:定义了渐变节点和色值
+     如果想要实现硬过渡，只要在节点两侧分别设置色值即可
+     一个background-image可以包含多个linear过渡  
+ * */
+background-image: linear-gradient(90deg, #FFAD33 0,#FFAD33 33%, #FF9900 33%, #FF9900 67%,#fff 67%,#fff 100%);
+/*#FFAD33,#FF9900*/
+}
+.test7{
+	background-size: 50px 50px;
+	/*background-image: linear-gradient( -45deg, #555 0,#555 25%,#fff 25%, #fff 75%,#555,75%,#555 100% ),linear-gradient( 45deg, #555 0,#555 25%,#fff 25%, #fff 75%,#555,75%,#555 100% );*/
+ 	  background-image: linear-gradient(  45deg, #555 0,#555 25%,transparent 25%, transparent 75%,#555 75%,#555 100% ),
+    linear-gradient(-45deg, #555 0,#555 25%, transparent 25%, transparent 75%,#555 75%,#555 100%);
+}
+.test8{
+	height: 200px;
+	/*background: #007CC2 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC);*/
+	background-color: #007CC2;
+	/*background-image:url(../../images/dot.png);*/
+	background-size: 30px 30px;
+	background-image: linear-gradient(45deg,#fff 0, #fff 10%,transparent 10%,transparent 40%,#fff 40%, #fff 60%,transparent 60%,transparent 90%,#fff 90%,#fff 100% );
+}
+</style>
+</head>
+
+<body>
+<div class="test"></div>
+<div class="test2"></div>
+<div class="test3"></div>
+<div class="test4"></div>
+<div class="test5"></div>
+<div class="test6"></div>
+<div class="test7"></div>
+<div class="test8"></div>
+</body>
+</html>
+			

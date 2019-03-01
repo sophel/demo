@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../js/mui.js" ></script>
+	</head>
+	<body>
+		<div id="test" >hi</div>
+	</body>
+	<script>
+//		mui.init();
+//		mui.ready(function(){
+//			var dom = document.getElementById( "test" );
+//			dom.addEventListener('click',function(){
+//				console.log( 1 );
+//			});
+//			dom.addEventListener('click',function(){
+//				console.log( 2 );
+//			});
+//			mui("body").on('tap','#test',function(){
+//				console.log( 3 );
+//			});
+//		});
+		
+//		//定义事件
+		var event = new CustomEvent( 'cat',{detail:{name:'msl'}});
+		//绑定事件
+		var dom = document.getElementById( "test" );
+		dom.addEventListener( 'cat',function( e ){
+			console.log( 'hi,I am a cat.' );
+			console.log( e.detail );
+		} );
+		//触发事件
+		dom.dispatchEvent( event );
+		
+		
+		
+	</script>
+</html>

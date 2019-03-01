@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wrapper{
+			width:1000px;
+			margin:0 auto;
+			background: #eee;
+		}
+		.box{
+			height:150px;
+			background: orange;
+			margin-bottom: 50px;
+			text-align: center;
+			line-height: 150px;
+		}
+	</style>
+	<body>
+		<div class="wrapper">
+			<div class="box" id="div1">1</div>
+			<div class="box" id="div2">2</div>
+			<div class="box" id="div3">3</div>
+			<div class="box" id="div4">4</div>
+			<div class="box" id="div5">5</div>
+			<div class="box" id="div6">6</div>
+			<div class="box" id="div7">7</div>
+			<div class="box" id="div8">8</div>
+			<div class="box" id="div9">9</div>
+		</div>
+	</body>
+	
+	<script>
+		window.onload = function(){
+			document.getElementById("div2").addEventListener( 'touchstart',function(e){
+				e.preventDefault();
+				//document.getElementById("div2").innerHTML = "touchend";
+			} );
+			document.getElementById("div2").addEventListener( 'touchend',function(e){
+				document.getElementById("div2").innerHTML = "touchend";
+			} );
+			document.getElementById("div2").addEventListener( 'click',function(e){
+				document.getElementById("div2").innerHTML = "click";
+			} );
+//			document.addEventListener( 'touchstart',function(e){
+//				e.preventDefault();
+//			},{passive:false} );
+		}
+	</script>
+</html>

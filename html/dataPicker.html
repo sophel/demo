@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="../js/angular.min.js" ></script>
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			请在此输入字符串：<input ng-model="mystr" ng-keyup="refresh()"/>
+			<ul>
+    			<li data-ng-repeat="x in strGroup">
+      			{{ x.value }}:{{ x.count }}
+    			</li>
+  			</ul>
+		</div>
+	</body>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl',function($scope){
+		$scope.refresh = function()
+		{
+			$scope.strGroup = {};
+			strlen = $scope.mystr.length;//数组长度
+			for( i=0; i<strlen; i++ )
+			{
+				v = $scope.mystr[i];
+				if( $scope.strGroup[v] && $scope.strGroup[v].value==v )//仅此一句即可判断对象中是否包含这个名字的对象成员，比数组遍历快捷简单
+				{
+					$scope.strGroup[v].count++;
+				}
+				else
+				{
+					var o ={};
+					o.value = v;
+					o.count = 1;
+					$scope.strGroup[v] = o;
+				}
+			}
+			console.log( $scope.strGroup );
+		}
+		$scope.mystr = "aaabbccabc";
+		$scope.refresh();
+	});
+	</script>
+</html>

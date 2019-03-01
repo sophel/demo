@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+	</head>
+	<style>
+		body{
+			padding: 0;
+			margin: 0;
+			width:100%;
+			height:100%;
+		}
+		.wrapper{
+			width:100%;
+		}
+		.header{
+			height:200px;
+			background:lightpink;
+		}
+		.sticky{
+			height:50px;
+			position: sticky;
+		  position: -webkit-sticky;
+			top:0;
+			background: #E7E7E7;
+			opacity: 0.3;
+		}
+		.content{
+			display: flex;
+			align-items: stretch;/*默认就是stretch*/
+		}
+		.sidebar{
+			width: 20.533333vw;
+			background-color: #f8f8f8;
+		}
+		.sidebar ul{
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			overflow-y: auto;
+		}
+		ul li{
+			padding: 17.5px 7.5px;
+			color:#333;
+			font-size: 12px;
+			cursor:default;
+		}
+		.goods{
+			flex: 1;
+			overflow-y:auto;
+			padding-left: 2.666667vw;
+		}
+		.category-name{
+			color: #666;
+			font-size: 12px;
+		}
+		.category-desc{
+			color: #999;
+			font-size: 10px;
+		}
+		.food-detail{
+			height: 27.466667vw;
+			overflow: hidden;
+			padding: 2.666667vw 0;
+			display: flex;
+		}
+		.fooddetails-logo{
+			height: 25.333333vw;
+			width: 25.333333vw;
+			display: inline-block;
+		}
+		.fooddetails-logo img{
+			width:100%;
+		}
+		.fooddetails-info{
+			/*flex:1决定了如何分配剩余空间，因此是个弱约束，可能会被其他元素挤压掉甚至为0*/
+			width:47.46667vw;
+			padding-right: 4vw;
+			display: flex;
+			flex-direction: column;
+			padding-left:2vw;
+		}
+		.fooddetail-name{
+			font-size:15px;
+			font-weight: bold;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 0;
+		}
+		dl,dd,dt{
+			padding: 0;
+			margin: 0;
+		}
+		p{
+			padding: 0;
+			margin: 0;
+		}
+		.fooddetial-desc{
+			font-size: 10px;
+			color: #999;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			margin:1.33333vw 0;
+		}
+		.foodsalesmonthly{
+			font-size: 10px;
+			color: #999;
+			flex:1;
+		}
+		.discount{
+			color: red;
+			font-size:10px;
+			flex:1;
+			color: #eb6551;
+		}
+		.discount span{
+			display: inline-block;
+			padding:2px;
+			border:1px solid #eb6551;
+			border-radius: 1px;
+		}
+		.price{
+			color: red;
+			font-size:14px;
+			font-weight: bold;
+			flex:1;
+		}
+
+	</style>
+	<script>
+		window.onload = function(){
+			let wh = document.documentElement.clientHeight
+			console.log( wh );
+			let sh = document.querySelector(".sticky").offsetHeight;
+			let ct = document.querySelector( ".content" );
+			ct.style.height = (wh-sh)+'px';
+		}
+		
+		//let ch = 
+	</script>
+	<body>
+		<div class="wrapper">
+			<div class="header"></div>
+			<div class="sticky"></div>
+			<div class="content">
+				<div class="sidebar">
+					<ul>
+						<li>优惠</li>
+						<li>金金有味</li>
+						<li>主食</li>
+						<li>超值套餐</li>
+						<li>小食</li>
+						<li>饮品</li>
+						<li>甜品</li>
+						<li>开心乐园套餐</li>
+					</ul>
+				</div>
+				<div class="goods">
+					<dl>
+						<dt>
+							<strong class="category-name">优惠</strong>
+							<span class="category-name">美味又实惠，大家快来抢</span>
+							</dt>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<div class="discount">
+										<span>6.9折</span>
+									</div>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>
+							<strong class="category-name">金金有味</strong>
+						</dt>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<div class="discount">
+										<span>6.9折</span>
+									</div>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>
+							<strong class="category-name">主食</strong>
+						</dt>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<div class="discount">
+										<span>6.9折</span>
+									</div>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>
+							<strong class="category-name">超值套餐</strong>
+						</dt>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<div class="discount">
+										<span>6.9折</span>
+									</div>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>
+							<strong class="category-name">小食</strong>
+						</dt>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<div class="discount">
+										<span>6.9折</span>
+									</div>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>
+							<strong class="category-name">饮品</strong>
+						</dt>
+						<dd>
+							<div></div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<div class="discount">
+										<span>6.9折</span>
+									</div>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>
+							<strong class="category-name">开心乐园套餐</strong>
+						</dt>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<div class="discount">
+										<span>6.9折</span>
+									</div>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+						<dd>
+							<div class="food-detail">
+								<span class="fooddetails-logo">
+									<img alt="“金金有味”五福临门" title="“金金有味”五福临门" src="//fuss10.elemecdn.com/d/66/bbbd8b9e90437bb68f587d773c5e9jpeg.jpeg?imageMogr/format/jpeg/thumbnail/!140x140r/gravity/Center/crop/140x140/">
+								</span>
+								<section class="fooddetails-info">
+									<p class="fooddetail-name">“金金有味”五福临门</p>
+									<p class="fooddetial-desc">爆浆鸡排堡1个 菠萝牛肉堡1个 巨无霸1个 麦辣鸡腿堡1个 板烧鸡腿堡1个 麦辣鸡翅4个 麦乐鸡10块 美汁源阳光橙2杯 2*475ml 大可乐3杯 3*660ml 红豆派2个 香芋派2个 小玉米1个</p>
+									<p class="foodsalesmonthly">月售3份</p>
+									<p class="discount">6.9折</p>
+									<p class="price">¥199</p>
+								</section>
+							</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

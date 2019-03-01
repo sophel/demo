@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//本章节主要完成，给普通的js对象增加自定义事件和监听处理
+//		function createObj(){
+//			return function(name,age){
+//				this.name = name;
+//				this.age = age;
+//				this.bus = {};
+//				Object.setPrototypeOf(this.bus,Object.getPrototypeOf(Object.getPrototypeOf(window)));
+//				this.bus.addEventListener('change',function(e){
+//					alert( ok );
+//				});
+//				this.trigger = function(){
+//					this.bus.dispatch( new CustomEvent('change') );
+//				}
+//			}
+//		}
+//		var f = new createObj();
+//		var o1 = new f('msl',26);
+//		var o2 = new f('hly',25);
+//		var o3 = new f('znn',26);
+
+//事件监听及其实现
+    function CursomObject (table) {
+        /// <summary>这是一个自定义对象类型</summary>
+        /// <param name="table" type="Object" optional="true">要添加的函数及属性表</param>
+     
+        // 这里要存放我们的自定义事件
+        // 因为是一个表，所以我们使用Object类型
+        this._events = {};
+        // 得到函数及属性表中的内容
+        for (var i in table) this[i] = table[i];
+    }
+    
+    CursomObject.prototype.addEventListener = function (type, listener, capture) {
+	    /// <summary>添加事件侦听器</summary>
+	    /// <param name="type" type="String">事件类型</param>
+	    /// <param name="listener" type="Function">触发的函数</param>
+	    /// <param name="capture" type="Boolean" optional="true">是否在捕获阶段触发(这里只是做了顺序排列)</param>
+	 
+	    // 判断一下传入的参数是否符合规格
+	    if (typeof type !== "string" || typeof listener !== "function") return this;
+	 	
+	    // 缓存符合条件的事件列表
+	    var list = this._events[type];
+	 
+	    // 判断是否已经有该类型事件，若没有则添加一个新数组
+	    if (typeof list === "undefined") list = (this._events[type] = []);
+	 
+	    /* 判断插入函数的位置 */
+	    if (!!capture) list.push(listener);
+	    //else list.insert(0, listener);
+	    else list.unshift( listener );
+	 
+	    return this;//为了实现链式编程
+	};
+	CursomObject.prototype.removeEventListener = function (type, listener, capture) {
+	    /// <summary>移除事件侦听器</summary>
+	    /// <param name="type" type="String">事件名称</param>
+	    /// <param name="listener" type="Function">触发的函数</param>
+	    /// <param name="capture" type="Boolean">是否在捕获阶段触发</param>
+	 
+	    // 判断一下传入的参数是否符合规格
+	    if (typeof type !== "string" || typeof listener !== "function") return this;
+	 
+	    // 缓存符合条件的事件列表
+	    var list = this._events[type];
+	 
+	    // 若没有绑定过此类事件则不需要做处理
+	    if (typeof list === "undefined") return this;
+	 
+	    for (var i = 0, len = list.length; i < len; i++) {
+	        // 通过循环判断来确定事件列表中存在要移除的事件侦听函数
+	        if (list[i] == listener) {
+	            // 找到后将此侦听函数从事件列表中移除
+	            //利用es5中的数组方法
+	            list.splice(i,1);
+	            //list.remove(i);
+	            break;
+	        }
+	    }
+	    return this;
+	};
+	
+	CursomObject.prototype.fireEvent = function (type, e) {
+	    /// <summary>触发事件</summary>
+	    /// <param name="type" type="String">事件名称</param>
+	    /// <param name="e" type="Object">附加参数对象</param>
+	 
+	    // 若存在DOM0用法的函数，则触发
+	    this["on" + type.toLowerCase()] && this["on" + type.toLowerCase()].call(this, e);
+	 
+	    // 缓存符合条件的事件列表
+	    var list = this._events[type];
+	 
+	    // 若事件列表中没有内容则不需要做处理
+	    if (!list || list.length <= 0) return this;
+	 
+	    // 阻止事件冒泡开关
+	    var isStop = false;
+	 
+	    // 模拟事件对象
+	    if(!!e){
+	    	window.event = { stopPropagation: function () { isStop = true; } };
+	    	e.stopPropagation = window.event.stopPropagation;
+	    }
+	    for (var i = 0, len = list.length; i < len; i++) {
+	        // 通过循环触发符条件的事件列表中存在的所有事件侦听函数
+	        // 若函数内返回false或事件内调用了event.stopPropagation函数则阻止接下来的所有调用
+	        if (list[i].call(this, e) === false || isStop) break;
+	    }
+	    return this;
+	};
+	//var o = new CursomObject();
+	//出现这样的原因是因为，o1,o2的原型对象是同一个原型对象，原型对象依赖的_event属性（存储事件回调函数用）
+	//解决方案：给每个实例创建自己的_eveny属性
+	function Test(){
+		return function(_name,_age){
+			this.name = _name;
+			this.age = _age;
+			//给每个实例创建自己_event属性，用于存储处理函数
+			CursomObject.call(this);
+		}
+	}
+	var f = new Test();
+	f.prototype = new CursomObject;
+	var o1 = new f('msl',16);
+	var o2= new f('hly',18);
+	o1.addEventListener('change',function(){
+		console.log( 'change1' );
+	});
+	o2.addEventListener('change',function(){
+		console.log( 'change2' );
+	});
+	o1.fireEvent('change');		
+	</script>
+</html>
